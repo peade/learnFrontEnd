@@ -34,13 +34,13 @@ gulp.task('server', function () {
     server: {
       baseDir: './src',
       // baseDir: './build',
-      index: 'index.html',
+      index: 'pages/index.html',
       logLevel: 'silent',
       middleware: [proxy, imgProxy]
     },
     port: 3010
   })
   gulp.watch(['src/**/*.js'], gulp.series('eslint'))
-  // gulp.watch(['src/**/*.scss'], ['scss'])
+  gulp.watch(['src/**/*.scss'], gulp.series('scss'))
   gulp.watch(['src/**/*.html']).on('change', reload)
 })
