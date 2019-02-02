@@ -5,10 +5,10 @@ const gulpsass = require('gulp-sass')
 const sourcemaps = require('gulp-sourcemaps')
 const autoprefixer = require('gulp-autoprefixer')
 const eslint = require('gulp-eslint')
-var changed = require('gulp-changed')
+const changed = require('gulp-changed')
 // const proxy = proxyMiddleware('/services', {target: 'http://localhost:8090', changeOrigin: true})
-const proxy = proxyMiddleware('/services', {target: 'http://localhost:8080', changeOrigin: true})
-const imgProxy = proxyMiddleware('/platformData', {target: 'http://localhost:8080', changeOrigin: true})
+const proxy = proxyMiddleware('/services', {target: 'http://localhost:8090', changeOrigin: true})
+const imgProxy = proxyMiddleware('/platformData', {target: 'http://localhost:8090', changeOrigin: true})
 const reload = browserSync.reload
 gulp.task('scss', function () {
   return gulp.src(['./src/**/*.scss'])
@@ -27,9 +27,6 @@ gulp.task('eslint', function () {
   return gulp.src(['./src/**/*.js'])
     .pipe(eslint())
     .pipe(eslint.format())
-    // .pipe(eslint.failAfterError('failes'))
-    // .pipe(changed())
-    // .pipe(gulp.dest('./app'))
     .pipe(reload({stream: true}))
 })
 gulp.task('server', function () {
@@ -37,14 +34,13 @@ gulp.task('server', function () {
     server: {
       baseDir: './src',
       // baseDir: './build',
-      index: 'index.htm',
+      index: 'index.html',
       logLevel: 'silent',
       middleware: [proxy, imgProxy]
     },
     port: 3010
   })
-  // gulp.watch(['app/views/**/*.scss',], ['scss'])
-  gulp.watch(['./src/**/*.js'], ['eslint'])
-  gulp.watch(['./src/**/*.scss'], ['scss'])
-  gulp.watch(['./src/**/*.html']).on('change', reload)
+  gulp.watch(['src/**/*.js'], gulp.series('eslint'))
+  // gulp.watch(['src/**/*.scss'], ['scss'])
+  gulp.watch(['src/**/*.html']).on('change', reload)
 })
