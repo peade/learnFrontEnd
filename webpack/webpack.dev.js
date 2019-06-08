@@ -9,7 +9,7 @@ function getEntries (globPath) {
   let entries = {}
   files.forEach(function (filePath) {
     let split = filePath.split(/\/|\./)
-    let name = split[2]
+    let name = split.slice(2, split.length - 1).join('/')
     entries[name] = './' + filePath
   })
   return entries
