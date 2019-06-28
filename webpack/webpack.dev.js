@@ -15,7 +15,7 @@ function getEntries (globPath) {
   return entries
 }
 
-function getHtmlWebpackPluginList (entries) {
+const getHtmlWebpackPluginList = entries => {
   let arr = []
   Object.keys(entries).forEach(function (name) {
     let item = new HtmlWebpackPlugin({
@@ -34,10 +34,16 @@ let htmlWebPluginList = getHtmlWebpackPluginList(entries)
 module.exports = {
   mode: 'development',
   entry: entries,
+  devtool: 'source-map',
   output: {
     filename: 'js/[name]-[contentHash:8].js',
     path: path.resolve(__dirname, '..', 'dist'),
     publicPath: '/'
+  },
+  resolve: {
+    alias: {
+      spritejs: 'spritejs/dist/spritejs.js'
+    }
   },
   module: {
     rules: [
@@ -54,14 +60,12 @@ module.exports = {
           },
           {
             loader: 'css-loader',
-
             options: {
               sourceMap: true
             }
           },
           {
             loader: 'sass-loader',
-
             options: {
               sourceMap: true
             }
@@ -117,7 +121,12 @@ module.exports = {
     ]
   },
   plugins: [
-    ...htmlWebPluginList
+    new CleanWebpackPlugin(),
+    ...htmlWebPluginList,
+    new MiniCssExtractPlugin({
+      filename: '[name].[chunkhash:8].css',
+      chunkFilename: '[name].css'
+    })
   ],
   devServer: {
     contentBase: path.join(__dirname, '../', 'dist'),
@@ -131,6 +140,31 @@ module.exports = {
     openPage: '/pages/index.html',
     proxy: {
       '/services': 'http://localhost:8080'
+    }
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      minSize: 1000,
+      minChunks: 5,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 2,
+      automaticNameDelimiter: '~',
+      name: true,
+      cacheGroups: {
+        // vendors: {
+        //   test: /[\\/]node_modules[\\/]/,
+        //   minChunks: 3,
+        //   priority: 10,
+        //   name: 'vendors'
+        // },
+        default: {
+          minChunks: 5,
+          priority: -10,
+          name: 'commons',
+          reuseExistingChunk: true
+        }
+      }
     }
   }
 }
