@@ -8,11 +8,6 @@ let routes = new Router({
       path: '/',
       name: 'app',
       component: () => import('../components/HelloWorld.vue' /* webpackchunkname:helloworld*/)
-    },
-    {
-      path: '/dldtdd',
-      name: 'app',
-      component: () => import('../components/dldtdd.vue' /* webpackchunkname:dldtdd*/)
     }
   ]
 })
