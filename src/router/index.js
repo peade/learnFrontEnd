@@ -11,8 +11,18 @@ let routes = new Router({
     },
     {
       path: '/dldtdd',
-      name: 'app',
+      name: 'dldtdd',
       component: () => import('../components/dldtdd.vue' /* webpackchunkname:dldtdd*/)
+    },
+    {
+      path: '/address',
+      name: 'address',
+      component: () => import('../components/address.vue' /* webpackchunkname:address*/)
+    },
+    {
+      path: '/article',
+      name: 'article',
+      component: () => import('../components/article.vue' /* webpackchunkname:article*/)
     }
   ]
 })
