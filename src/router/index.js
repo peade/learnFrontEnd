@@ -53,6 +53,16 @@ let routes = new Router({
       path: '/code',
       name: 'code',
       component: () => import('../components/code.vue' /* webpackchunkname:code */)
+    },
+    {
+      path: '/subsup',
+      name: 'subsup',
+      component: () => import('../components/subsup.vue' /* webpackchunkname:subsup */)
+    },
+    {
+      path: '/insdel',
+      name: 'insdel',
+      component: () => import('../components/insdel.vue' /* webpackchunkname:insdel */)
     }
   ]
 })
