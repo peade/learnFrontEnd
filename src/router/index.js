@@ -63,6 +63,22 @@ let routes = new Router({
       path: '/insdel',
       name: 'insdel',
       component: () => import('../components/insdel.vue' /* webpackchunkname:insdel */)
+    },
+    {
+      path: '/object',
+      name: 'object',
+      component: () => import('../components/object.vue' /* webpackchunkname:object */)
+    },
+    {
+      path: '/table',
+      name: 'table',
+      component: () => import('../components/table.vue' /* webpackchunkname:table */)
+    },
+
+    {
+      path: '/animate',
+      name: 'animate',
+      component: () => import('../components/vue/anim.vue' /* webpackchunkname:vue.anim */)
     }
   ]
 })
