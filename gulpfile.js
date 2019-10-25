@@ -1,50 +1,73 @@
 const gulp = require('gulp')
+const {series, parallel, src, dest, watch} = require('gulp')
 const browserSync = require('browser-sync')
 const proxyMiddleware = require('http-proxy-middleware')
 const gulpsass = require('gulp-sass')
 const sourcemaps = require('gulp-sourcemaps')
 const autoprefixer = require('gulp-autoprefixer')
 const eslint = require('gulp-eslint')
+const babel = require('gulp-babel')
 var changed = require('gulp-changed')
 // const proxy = proxyMiddleware('/services', {target: 'http://localhost:8090', changeOrigin: true})
 const proxy = proxyMiddleware('/services', {target: 'http://localhost:8080', changeOrigin: true})
 const imgProxy = proxyMiddleware('/platformData', {target: 'http://localhost:8080', changeOrigin: true})
 const reload = browserSync.reload
-gulp.task('scss', function () {
-  return gulp.src(['./src/**/*.scss'])
+
+const scssTask = function () {
+  return src(['./src/styles/**/*.scss'])
     .pipe(sourcemaps.init())
     .pipe(gulpsass().on('error', gulpsass.logError))
-    .pipe(autoprefixer({
-      browsers: ['last 2 versions', '> 1%', 'Android >= 4.0'],
-      cascade: false
-    }))
+    .pipe(autoprefixer())
     .pipe(sourcemaps.write('.'))
-    .pipe(changed('./src'))
-    .pipe(gulp.dest('./src'))
+    .pipe(changed('./src/styles'))
+    .pipe(dest('./src/styles'))
     .pipe(reload({stream: true}))
-})
-gulp.task('eslint', function () {
-  return gulp.src(['./src/**/*.js'])
-    .pipe(eslint())
+}
+exports.scssTask = scssTask
+const eslintTask = function () {
+  return src(['./src/es6/**/*.js'])
+    .pipe(eslint({quiet: true}))
     .pipe(eslint.format())
     // .pipe(eslint.failAfterError('failes'))
-    // .pipe(changed())
-    // .pipe(gulp.dest('./app'))
     .pipe(reload({stream: true}))
-})
-gulp.task('server', function () {
+}
+exports.eslintTask = eslintTask
+const babelTask = function () {
+  return src(['./src/es6/**/*.js'])
+    .pipe(sourcemaps.init())
+    .pipe(babel())
+    .pipe(sourcemaps.write('.'))
+    .pipe(dest('./src/js'))
+}
+exports.babelTask = babelTask
+
+const watchScss = function () {
+  watch(['./src/styles/**/*.scss'], series(scssTask))
+}
+exports.watchScss = watchScss
+
+const watchBabel = function () {
+  watch(['./src/es6/**/*.js'], series(babelTask))
+}
+exports.watchBabel = watchBabel
+
+const watchEslint = function () {
+  watch(['./src/es6/**/*.js'], series(eslintTask))
+}
+exports.watchEslint = watchEslint
+
+const syncBrowser = function () {
   browserSync.init({
     server: {
       baseDir: './src',
       // baseDir: './build',
-      index: 'index.htm',
+      index: 'pages/index.html',
       logLevel: 'silent',
       middleware: [proxy, imgProxy]
     },
     port: 3010
   })
-  // gulp.watch(['app/views/**/*.scss',], ['scss'])
-  gulp.watch(['./src/**/*.js'], ['eslint'])
-  gulp.watch(['./src/**/*.scss'], ['scss'])
-  gulp.watch(['./src/**/*.html']).on('change', reload)
-})
+}
+exports.syncBrowser = syncBrowser
+
+exports.server = parallel(syncBrowser, series(watchEslint, watchBabel), watchScss)

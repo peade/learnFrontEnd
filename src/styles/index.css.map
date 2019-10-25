@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.scss"],"names":[],"mappings":"AAAA;EACE,WAAW;EACX,YAAY;EACZ,wBAAwB,EAAA","file":"index.css","sourcesContent":["body{\r\n  width: 100%;\r\n  height: 100%;\r\n  background-color: bisque;\r\n\r\n}"]}
