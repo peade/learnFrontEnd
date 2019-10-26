@@ -56,6 +56,14 @@ const watchEslint = function () {
 }
 exports.watchEslint = watchEslint
 
+const htmlChange = function () {
+  return src(['./src/pages/**/*.html'])
+    .pipe(reload({stream: true}))
+}
+const watchHtml = function () {
+  watch(['./src/pages/**/*.html'], htmlChange)
+}
+exports.watchHtml = watchHtml
 const syncBrowser = function () {
   browserSync.init({
     server: {
@@ -70,4 +78,4 @@ const syncBrowser = function () {
 }
 exports.syncBrowser = syncBrowser
 
-exports.server = parallel(syncBrowser, series(watchEslint, watchBabel), watchScss)
+exports.server = parallel(syncBrowser, watchHtml, watchEslint, watchBabel, watchScss)
