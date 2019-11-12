@@ -35,6 +35,12 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  mounted() {
+    this.$confirm('提示')
+      .then(function (res) {
+        console.log(res)
+      })
   }
 }
 </script>
