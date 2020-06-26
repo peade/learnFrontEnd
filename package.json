@@ -49,7 +49,7 @@
   ],
   "prettier": {
     "tabWidth": 2,
-    "Semicolons": false,
+    "semi": false,
     "singleQuote": true,
     "trailingCommas": "none"
   }
