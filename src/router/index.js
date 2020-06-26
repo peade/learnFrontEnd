@@ -7,7 +7,7 @@ let routes = new Router({
     {
       path: '/',
       name: 'app',
-      component: () => import('../components/HelloWorld.vue' /* webpackchunkname:helloworld*/)
+      component: () => import('../components/h2m.vue' /* webpackchunkname:h2m*/)
     }
   ]
 })
