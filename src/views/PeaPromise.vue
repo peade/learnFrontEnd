@@ -1,8 +1,8 @@
 <template>
-  <div>promise 练习<button @click="triggerPromise">触发</button></div>
+  <div></div>
 </template>
 <script>
-import { PeaPromise } from '@/utils/pea-promise.js'
+import { PeaPromise } from '@/utils/pea-promise'
 export default {
   name: 'PeaPromise',
   filters: {},
