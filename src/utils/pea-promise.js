@@ -27,7 +27,6 @@ export class SimplePromise {
     }
   }
 }
-
 function handlePromise(promise2, x, resolve, reject) {
   if (promise2 === x) {
     return reject(new TypeError('circular reference'))
