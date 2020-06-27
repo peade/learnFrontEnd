@@ -14,6 +14,13 @@ export const routesConfig = [
     component: () =>
       import('@/views/PeaPromise.vue' /* webpackChunkName:"Promise" */),
     meta: { title: 'Promise' }
+  },
+  {
+    path: '/deep-clone',
+    name: 'DeepClone',
+    component: () =>
+      import('@/views/DeepClone.vue' /* webpackChunkName:"DeepClone" */),
+    meta: { title: 'DeepClone' }
   }
 ]
 Vue.use(Router)
