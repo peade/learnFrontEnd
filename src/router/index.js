@@ -12,7 +12,7 @@ export const routesConfig = [
     path: '/pea-promise',
     name: 'promise',
     component: () =>
-      import('@/views/PeaPromise.vue' /* webpackChunkName:"Promise" */),
+      import('@/views/PeadePromise.vue' /* webpackChunkName:"Promise" */),
     meta: { title: 'Promise' }
   },
   {

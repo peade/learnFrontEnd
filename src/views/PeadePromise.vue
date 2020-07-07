@@ -4,7 +4,7 @@
 <script>
 import { PeaPromise } from '@/utils/pea-promise'
 export default {
-  name: 'PeaPromise',
+  name: 'PeadePromise',
   filters: {},
   components: {},
   mixins: [],
