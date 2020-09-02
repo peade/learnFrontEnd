@@ -1,63 +1,55 @@
 {
-  "name": "feliblearning",
-  "version": "1.0.0",
-  "description": "",
-  "main": "gulpfile.js",
+  "name": "htmlelement",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --progress --color --config ./webpack/webpack.dev.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/peade/FELibLearning.git"
+  "dependencies": {
+    "core-js": "^2.6.5",
+    "vue": "^2.6.10",
+    "vue-router": "^3.1.3"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/peade/FELibLearning/issues"
-  },
-  "homepage": "https://github.com/peade/FELibLearning#readme",
   "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-runtime": "^6.26.0",
-    "browser-sync": "^2.26.3",
-    "clean-webpack-plugin": "^0.1.19",
-    "common-html-include-loader": "^1.0.0",
-    "copy-webpack-plugin": "^4.5.2",
-    "css-loader": "^0.28.11",
-    "eslint": "^4.19.1",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-loader": "^2.0.0",
-    "eslint-plugin-import": "^2.12.0",
-    "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-promise": "^3.8.0",
-    "eslint-plugin-standard": "^3.1.0",
-    "file-loader": "^1.1.11",
-    "gulp": "^4.0.0",
-    "gulp-autoprefixer": "^6.0.0",
-    "gulp-babel": "^8.0.0",
-    "gulp-changed": "^3.2.0",
-    "gulp-eslint": "^5.0.0",
-    "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.4",
-    "html-loader": "^0.5.5",
-    "html-webpack-include-assets-plugin": "^1.0.4",
-    "html-webpack-plugin": "^3.2.0",
-    "http-proxy-middleware": "^0.19.1",
-    "mini-css-extract-plugin": "^0.4.0",
-    "node-sass": "^4.9.0",
-    "postcss-loader": "^2.1.5",
-    "sass-loader": "^7.0.1",
-    "url-loader": "^1.0.1",
-    "vconsole-webpack-plugin": "^1.4.2",
-    "webpack": "^4.8.3",
-    "webpack-cli": "^3.1.1",
-    "webpack-dev-server": "^3.1.4",
-    "webpack-merge": "^4.1.2"
+    "@vue/cli-plugin-babel": "^3.11.0",
+    "@vue/cli-plugin-eslint": "^3.11.0",
+    "@vue/cli-service": "^3.11.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "prettier": {
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": true,
+    "trailingCommas": "none"
   }
 }
