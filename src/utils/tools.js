@@ -63,3 +63,66 @@ export function jsonp(options) {
   scriptNode.type = 'text/javascript'
   container.appendChild(scriptNode)
 }
+
+// 获取系统
+function GetSystem() {
+  if (navigator) {
+      if (-1 !== navigator.platform.indexOf("Win"))
+          return "Windows";
+      if (-1 !== navigator.platform.indexOf("Mac"))
+          return "MacOS";
+      if (-1 !== navigator.platform.indexOf("X11"))
+          return "UNIX";
+      if (-1 !== navigator.platform.indexOf("Linux"))
+          return "Linux";
+      const ua = navigator.userAgent.toLowerCase();
+      if(/iphone|ipad|ipod/i.test(ua)){
+          return "iOS"
+      }else if(/android/i.test(ua)){
+          return 'Android'
+      }
+    //   if (-1 !== e.indexOf("iphone"))
+    //       return "iPhone";
+    //   if (-1 !== e.indexOf("ipod"))
+    //       return "iPod";
+    //   if (-1 !== e.indexOf("ipad"))
+    //       return "iPad";
+    //   if (-1 !== e.indexOf("android"))
+    //       return "Android"
+  }
+  return "Unknown"
+}
+// 获取浏览器
+function GetBrowser(){
+  const ua=navigator.userAgent
+  let b='Unknown'
+  if(/QQ\/[0-9]+/.test(ua)){
+    b='QQ'
+  }else if( /QQBrowser/.test(ua) && !(/QQ\//.test(ua) || /MicroMessenger/.test(ua))){
+    b='QQBrowser'
+  }else if(/MicroMessenger/.test(ua)){
+    b='wechat'
+  }else if(/baidubrowser/.test(ua)){
+    b='baiduBrowser'
+  }else if(/UCBrowser/.test(ua)){
+    b='UCBrowser'
+  }else if(/Chrome\/(\S*) Mobile/.test(ua)){
+    b='ChromeMobile'
+  }else if(/Chrome\//.test(ua)){
+    b='Chrome'
+  }else if(/SogouMobileBrowser/.test(ua)){
+    b='SogouMobileBrowser'
+  }else if(/MiuiBrowser\/(\S*)/.test(ua)){
+    b='MiuiBrowser'
+  }else if(/HUAWEI/i.test(ua) && !(/baiduboxapp/.test(ua) || /QQBrowser/.test(ua) || /UCBrowser/.test(ua) || /MicroMessenger/.test(ua))){
+    b='HuaWeiBrowser'
+  }
+  return b
+}
+// 获取设备信息
+export function GetDeviceInfo() {
+  return {
+    system: GetSystem(),
+    browser: GetBrowser()
+  }
+}
