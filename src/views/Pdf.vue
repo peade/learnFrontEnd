@@ -11,6 +11,8 @@
 <script>
 import PdfObject from 'pdfobject'
 import PdfjsLib from 'pdfjs-dist'
+import { GetDeviceInfo } from '@/util/tools'
+
 import demoPdf from '@/assets/pdf/demo.pdf'
 PdfjsLib.GlobalWorkerOptions.workerSrc = require('pdfjs-dist/build/pdf.worker.entry')
 export default {
@@ -30,6 +32,8 @@ export default {
   created() {},
   mounted() {
     this.usePdfjs()
+    const device = GetDeviceInfo()
+    console.log(device)
   },
   destroyed() {},
   methods: {
