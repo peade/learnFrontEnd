@@ -9,7 +9,7 @@ export default [
     path: '/loading',
     name: 'Loading',
     component: () =>
-      import('@/views/Loading/Loading' /* webpackChunkName: Loading */),
+      import('@/views/Loading/Loading' /* webpackChunkName: "Loading" */),
     meta: { title: 'Loading' }
   }
 ]
