@@ -11,6 +11,14 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "index" */ '../views/Index.vue')
+  },
+  {
+    path: '/fre-inte',
+    name: 'FrequentlyInterview',
+    component: () =>
+      import(
+        '../views/FrequentlyInterview.vue' /* webpackChunkName: "fre-inte" */
+      )
   }
 ]
 
