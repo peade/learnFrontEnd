@@ -2,7 +2,9 @@
   <div>
     <van-row gutter="10">
       <van-col class="col" span="6" @click="flatArr">数组扁平化</van-col>
+      <van-col class="col" span="6" @click="uniqueArr">数组去重</van-col>
     </van-row>
+    <code lang="javascript">{{ codeText }}</code>
   </div>
 </template>
 <script>
@@ -10,8 +12,10 @@ import {
   arrFlat,
   regFlat,
   regFlatImprove,
-  reduceFlat
+  reduceFlat,
+  recursionFlat
 } from '@/FrequentlyInterview/flat-array'
+import { uniqueBySet } from '@/FrequentlyInterview/unique-array'
 export default {
   name: 'FrequentlyInterview',
   filters: {},
@@ -19,7 +23,9 @@ export default {
   mixins: [],
   props: {},
   data() {
-    return {}
+    return {
+      codeText: ''
+    }
   },
   computed: {},
   watch: {},
@@ -33,6 +39,12 @@ export default {
       console.log('regFlat', regFlat(arr))
       console.log('regFlatImprove', regFlatImprove(arr))
       console.log('reduceFlat', reduceFlat(arr))
+      console.log('recursionFlat', recursionFlat(arr))
+    },
+    uniqueArr() {
+      const arr = [1, 1, '1', 17, true, true, false, false, 'true', 'a', {}, {}]
+      uniqueBySet(arr)
+      this.codeText = uniqueBySet.toString()
     }
   }
 }

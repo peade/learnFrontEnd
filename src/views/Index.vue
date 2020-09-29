@@ -1,18 +1,20 @@
 <template>
   <div>
     <van-row gutter="10">
-      <van-col class="col" span="6">span: 61</van-col>
-      <van-col class="col" span="6">span: 6</van-col>
-      <van-col class="col" span="6">span: 6</van-col>
-      <van-col class="col" span="6">span: 6</van-col>
-      <van-col class="col" span="6">span: 61</van-col>
-      <van-col class="col" span="6">span: 6</van-col>
-      <van-col class="col" span="6">span: 6</van-col>
-      <van-col class="col" span="6">span: 6</van-col>
+      <van-col
+        class="col"
+        span="6"
+        v-for="item in routers"
+        :key="item.name"
+        @click="goPage(item)"
+      >
+        {{ item.meta.title }}
+      </van-col>
     </van-row>
   </div>
 </template>
 <script>
+import routers from '@/router/routers'
 export default {
   name: 'Index',
   filters: {},
@@ -20,14 +22,20 @@ export default {
   mixins: [],
   props: {},
   data() {
-    return {}
+    return {
+      routers
+    }
   },
   computed: {},
   watch: {},
   created() {},
   mounted() {},
   destroyed() {},
-  methods: {}
+  methods: {
+    goPage(item) {
+      this.$router.push({ path: item.path })
+    }
+  }
 }
 </script>
 <style scoped lang="scss">

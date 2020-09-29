@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import routers from './routers'
 Vue.use(VueRouter)
 
 const routes = [
@@ -12,14 +13,7 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "index" */ '../views/Index.vue')
   },
-  {
-    path: '/fre-inte',
-    name: 'FrequentlyInterview',
-    component: () =>
-      import(
-        '../views/FrequentlyInterview.vue' /* webpackChunkName: "fre-inte" */
-      )
-  }
+  ...routers
 ]
 
 const router = new VueRouter({

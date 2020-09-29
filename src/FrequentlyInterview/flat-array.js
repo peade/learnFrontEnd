@@ -24,3 +24,18 @@ export function reduceFlat(arr) {
     return pre.concat(Array.isArray(cur) ? reduceFlat(cur) : cur)
   }, [])
 }
+// 递归 recursion
+export function recursionFlat(arr) {
+  const newArr = []
+  const fn = ar => {
+    for (let a of ar) {
+      if (Array.isArray(a)) {
+        fn(a)
+      } else {
+        newArr.push(a)
+      }
+    }
+  }
+  fn(arr)
+  return newArr
+}
