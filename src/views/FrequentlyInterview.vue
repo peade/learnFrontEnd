@@ -15,7 +15,10 @@ import {
   reduceFlat,
   recursionFlat
 } from '@/FrequentlyInterview/flat-array'
-import { uniqueBySet } from '@/FrequentlyInterview/unique-array'
+import {
+  uniqueBySet,
+  uniqueByForSplice
+} from '@/FrequentlyInterview/unique-array'
 export default {
   name: 'FrequentlyInterview',
   filters: {},
@@ -44,7 +47,7 @@ export default {
     uniqueArr() {
       const arr = [1, 1, '1', 17, true, true, false, false, 'true', 'a', {}, {}]
       uniqueBySet(arr)
-      this.codeText = uniqueBySet.toString()
+      uniqueByForSplice(arr)
     }
   }
 }

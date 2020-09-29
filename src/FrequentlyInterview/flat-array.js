@@ -1,8 +1,6 @@
 /**
  * flat array
  */
-const arr = [1, [2, [3, [4, 5]]], 6]
-console.log(arr)
 // 使用数组flat方法
 export function arrFlat(arr) {
   return arr.flat(Infinity)
