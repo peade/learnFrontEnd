@@ -22,3 +22,44 @@ export function uniqueByForSplice(array) {
   console.log('uniqueByForSplice', arr)
   // return newArr
 }
+
+// indexof
+export function uniqueByIndexOf(arr) {
+  const res = []
+  for (let i = 0; i < arr.length; i++) {
+    if (res.indexOf(arr[i]) === -1) {
+      res.push(arr[i])
+    }
+  }
+  console.log('uniqueByIndexOf', res)
+}
+// includes
+export function uniqueByIncludes(arr) {
+  const res = []
+  for (let i = 0; i < arr.length; i++) {
+    if (!res.includes(arr[i])) {
+      res.push(arr[i])
+    }
+  }
+  console.log('uniqueByIncludes', res)
+}
+
+// filter
+export function uniqueByFilter(arr) {
+  const newArr = arr.filter((item, index) => {
+    return arr.indexOf(item) === index
+  })
+  console.log('uniqueByFilter', newArr)
+}
+// map
+export function uniqueByMap(arr) {
+  const newArr = []
+  const map = new Map()
+  for (let i = 0; i < arr.length; i++) {
+    if (!map.has(arr[i])) {
+      map.set(arr[i], true)
+      newArr.push(arr[i])
+    }
+  }
+  console.log('uniqueByMap', newArr)
+}

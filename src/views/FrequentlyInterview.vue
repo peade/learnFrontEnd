@@ -1,8 +1,11 @@
 <template>
   <div>
-    <van-row gutter="10">
+    <van-row gutter="10" type="flex">
       <van-col class="col" span="6" @click="flatArr">数组扁平化</van-col>
       <van-col class="col" span="6" @click="uniqueArr">数组去重</van-col>
+      <van-col class="col" span="6" @click="toArray">转数组</van-col>
+      <van-col class="col" span="6" @click="utils">工具性</van-col>
+      <van-col class="col" span="6" @click="utils">工具性</van-col>
     </van-row>
     <code lang="javascript">{{ codeText }}</code>
   </div>
@@ -17,8 +20,19 @@ import {
 } from '@/FrequentlyInterview/flat-array'
 import {
   uniqueBySet,
-  uniqueByForSplice
+  uniqueByForSplice,
+  uniqueByIndexOf,
+  uniqueByIncludes,
+  uniqueByFilter,
+  uniqueByMap
 } from '@/FrequentlyInterview/unique-array'
+import {
+  arrayFrom,
+  sliceCall,
+  extendGrammar,
+  arrConcat
+} from '@/FrequentlyInterview/to-array'
+import { protoInherit } from '@/FrequentlyInterview/utils'
 export default {
   name: 'FrequentlyInterview',
   filters: {},
@@ -38,9 +52,10 @@ export default {
   methods: {
     flatArr() {
       const arr = [1, [2, [3, [4, 5]]], 6]
-      console.log('arrFlat', arrFlat(arr))
-      console.log('regFlat', regFlat(arr))
-      console.log('regFlatImprove', regFlatImprove(arr))
+
+      arrFlat(arr)
+      regFlat(arr)
+      regFlatImprove(arr)
       console.log('reduceFlat', reduceFlat(arr))
       console.log('recursionFlat', recursionFlat(arr))
     },
@@ -48,6 +63,19 @@ export default {
       const arr = [1, 1, '1', 17, true, true, false, false, 'true', 'a', {}, {}]
       uniqueBySet(arr)
       uniqueByForSplice(arr)
+      uniqueByIndexOf(arr)
+      uniqueByIncludes(arr)
+      uniqueByFilter(arr)
+      uniqueByMap(arr)
+    },
+    toArray() {
+      arrayFrom()
+      sliceCall()
+      extendGrammar()
+      arrConcat()
+    },
+    utils() {
+      protoInherit()
     }
   }
 }

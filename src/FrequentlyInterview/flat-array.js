@@ -3,18 +3,23 @@
  */
 // 使用数组flat方法
 export function arrFlat(arr) {
-  return arr.flat(Infinity)
+  const newArr = arr.flat(Infinity)
+  console.log(`arrFlat`, newArr)
 }
 // 使用正则
 export function regFlat(arr) {
-  return JSON.stringify(arr)
+  const newArr = JSON.stringify(arr)
     .replace(/\[|\]/g, '')
     .split(',')
+  console.log(`regFlat`, newArr)
 }
 
 // 正则改良
 export function regFlatImprove(arr) {
-  return JSON.parse('[' + JSON.stringify(arr).replace(/\[|\]/g, '') + ']')
+  const newArr = JSON.parse(
+    '[' + JSON.stringify(arr).replace(/\[|\]/g, '') + ']'
+  )
+  console.log(`regFlatImprove`, newArr)
 }
 // reduce
 export function reduceFlat(arr) {
