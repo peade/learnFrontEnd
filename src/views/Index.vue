@@ -9,29 +9,29 @@
   </div>
 </template>
 <script>
-import { routesConfig } from '@/router'
-export default {
-  name: 'Index',
-  filters: {},
-  components: {},
-  mixins: [],
-  data() {
-    return {
-      routeList: routesConfig
-    }
-  },
-  computed: {},
-  created() {},
-  mounted() {},
-  destroyed() {},
-  methods: {}
-}
+  import { routesConfig } from '@/router'
+  export default {
+    name: 'Index',
+    filters: {},
+    components: {},
+    mixins: [],
+    data() {
+      return {
+        routeList: routesConfig
+      }
+    },
+    computed: {},
+    created() {},
+    mounted() {},
+    destroyed() {},
+    methods: {}
+  }
 </script>
 <style lang="scss" scoped>
-.container {
-  text-align: center;
-  a {
-    padding: 10px;
+  .container {
+    text-align: center;
+    a {
+      padding: 10px;
+    }
   }
-}
 </style>

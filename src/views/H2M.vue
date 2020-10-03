@@ -11,38 +11,38 @@
 </template>
 
 <script>
-import h2m from 'h2m';
-export default {
-  name: 'h2m',
-  props: {},
-  data() {
-    return {
-      html: '',
-      md: ''
-    };
-  },
-  created() {},
-  mounted() {},
-  methods: {
-    htmlToMd() {
-      this.md = h2m(this.html);
+  import h2m from 'h2m'
+  export default {
+    name: 'h2m',
+    props: {},
+    data() {
+      return {
+        html: '',
+        md: ''
+      }
+    },
+    created() {},
+    mounted() {},
+    methods: {
+      htmlToMd() {
+        this.md = h2m(this.html)
+      }
     }
   }
-};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-.btn-div {
-  text-align: center;
-  margin-bottom: 10px;
-}
-.container {
-  display: flex;
-  justify-content: space-around;
-  .text-area {
-    flex-basis: 45%;
-    min-height: 500px;
+  .btn-div {
+    text-align: center;
+    margin-bottom: 10px;
   }
-}
+  .container {
+    display: flex;
+    justify-content: space-around;
+    .text-area {
+      flex-basis: 45%;
+      min-height: 500px;
+    }
+  }
 </style>

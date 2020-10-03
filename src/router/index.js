@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
 export const routesConfig = [
   {
     path: '/h2m',
