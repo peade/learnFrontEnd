@@ -1,3 +1,4 @@
+// 来源 https://segmentfault.com/a/1190000007665361
 export function simpleJsonp(req) {
   const script = document.createElement('script')
   const url = req.url + '?callback=' + req.callback.name
