@@ -10,6 +10,7 @@
 </template>
 <script>
   import { routesConfig } from '@/router'
+  import { IsPlainObject } from '@/utils/jqTools'
   export default {
     name: 'Index',
     filters: {},
@@ -25,6 +26,7 @@
     beforeMount() {},
     mounted() {
       console.log(typeof this.toType)
+      console.log('IsPlainObject', IsPlainObject({}))
     },
     beforeUpdate() {},
     updated() {},
@@ -53,9 +55,7 @@
   .container {
     text-align: center;
   }
-  .list {
-    a {
-      padding: 10px;
-    }
+  a {
+    padding: 10px;
   }
 </style>
