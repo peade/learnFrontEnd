@@ -1,14 +1,21 @@
 import Vue from 'vue'
-import Router from 'vue-router'
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
 
-Vue.use(Router)
-let routes = new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'app',
-      component: () => import('../components/HelloWorld.vue' /* webpackchunkname:helloworld*/)
-    }
-  ]
+const routes = [
+  {
+    path: '/',
+    name: 'Index',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "index" */ '../views/Index.vue')
+  }
+]
+
+const router = new VueRouter({
+  routes
 })
-export default routes
+
+export default router
