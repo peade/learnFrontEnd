@@ -5,12 +5,14 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
+    redirect: '/index'
+  },
+  {
+    path: '/index',
     name: 'Index',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "index" */ '../views/Index.vue')
+      import(/* webpackChunkName: "index" */ '../views/Index.vue'),
+    meta: { title: 'Index' }
   }
 ]
 

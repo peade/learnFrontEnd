@@ -1,21 +1,18 @@
 import Vue from 'vue'
 import App from './App.vue'
-<<<<<<< HEAD
-import router from './router/index'
+import Confirm from './plugins/Confirm/index'
 
-import Confirm from './components/Confirm/index'
-
-Vue.config.productionTip = false
-=======
 import router from './router'
 import store from './store'
 import vant from 'vant'
 import 'vant/lib/index.css'
+import '@/styles/app.scss'
+import DefaultImg from '@/plugins/DefaultImg/default-img'
 Vue.use(vant)
 Vue.config.productionTip = process.env.NODE_ENV === 'production'
->>>>>>> master
 
 Vue.use(Confirm)
+Vue.use(DefaultImg)
 new Vue({
   router,
   store,

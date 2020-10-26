@@ -3,8 +3,10 @@
     <div class="content">
       <div v-html="message"></div>
       <div>
-        <button v-if="isShowButtonFalse" @click="choose(false)">{{buttonFalseText}}</button>
-        <button @click="choose(true)">{{buttonTrueText}}</button>
+        <button v-if="isShowButtonFalse" @click="choose(false)">
+          {{ buttonFalseText }}
+        </button>
+        <button @click="choose(true)">{{ buttonTrueText }}</button>
       </div>
     </div>
   </main>
@@ -46,14 +48,11 @@
 
     watch: {},
 
-    created() {
-    },
+    created() {},
 
-    mounted() {
-    },
+    mounted() {},
 
-    destroyed() {
-    },
+    destroyed() {},
 
     methods: {
       choose(value) {
@@ -83,5 +82,4 @@
       border-radius: 5px;
     }
   }
-
 </style>

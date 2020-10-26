@@ -7,14 +7,23 @@ function Install(Vue, options = {}) {
 
   function createDialogCmp(options) {
     const container = document.querySelector('[data-app=true]') || document.body
-    return new Promise((resolve) => {
-      const cmp = new Ctor(Object.assign({}, {
-        propsData: Object.assign({}, Vue.prototype.$confirm.options, options),
-        destroyed: () => {
-          container.removeChild(cmp.$el)
-          resolve(cmp.value)
-        }
-      }))
+    return new Promise(resolve => {
+      const cmp = new Ctor(
+        Object.assign(
+          {},
+          {
+            propsData: Object.assign(
+              {},
+              Vue.prototype.$confirm.options,
+              options
+            ),
+            destroyed: () => {
+              container.removeChild(cmp.$el)
+              resolve(cmp.value)
+            }
+          }
+        )
+      )
       container.appendChild(cmp.$mount().$el)
     })
   }
