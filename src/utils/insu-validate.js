@@ -1,15 +1,3 @@
-/**
- * 姓名规则
- * 中文姓名	不得出现非汉字、字母、.或者非半角字符；不得出现包含“不详”、“未知”、“不知道”、()、#、“？”、数字、空格等特殊字符；字符长度不得超过60位。
-	如果名字中不含有中文，则认定该名字为非中文名，则只能含有英文、空格、"-"、","和"/"；
-	姓名字节长度小于4就认为有问题，汉字长度超过30认为有问题(因数据PERSON_NAME 是60长度，即2-30个汉字)
-	姓名不能为'未知', '不详', '不祥', ' ', '不知道','null','NULL'；
-  所有字符和字母转半角，去除首尾空格
-  
-英文姓名	不得出现非大写字母、半角或者只有一位字母；不得出现两个及以上空格，或者头尾为空格；不得出现数字、“？”、“#” 等特殊字符和标点符号；字符长度不得超过60位。
-
- */
-
 import { RegExp } from 'core-js'
 
 // 全角半角转换
@@ -111,11 +99,14 @@ export function CnNameValidate(
  * @params {number} options.min
  * @param {number} options.max
  */
-export function EnNameValidate(str, options = { min: 2, max: 60 }) {
+export function EnNameValidate(
+  str,
+  options = { min: 2, max: 60, blockStrList: ['null', 'NULL'] }
+) {
   const newStr = str.trim() // 前后去空
   const len = StrCharLen(newStr)
 
-  const { min, max } = options
+  const { min, max, blockStrList } = options
   console.log(len, min, max)
   const charRestrict = /^[a-zA-Z\s-,/]+$/
   // const specCharLenRestirct = /[\s-,\\]{2,}/ // 非英文字符不能连着出现
@@ -123,20 +114,14 @@ export function EnNameValidate(str, options = { min: 2, max: 60 }) {
   const specCharLenRestirct = /\s{2,}/ // 空格不能连着出现
   const startAZ = /^[a-zA-Z]/
   const endAZ = /[a-zA-Z]$/
-  console.log({
-    min: len >= min,
-    max: len <= max,
-    charRestrict: charRestrict.test(newStr),
-    specCharLenRestirct: !specCharLenRestirct.test(newStr),
-    startAZ: startAZ.test(newStr),
-    endAZ: endAZ.test(newStr)
-  })
+  const blockReg = new RegExp(`${blockStrList.join('|')}`)
   return (
     len >= min &&
     len <= max &&
     charRestrict.test(newStr) &&
     !specCharLenRestirct.test(newStr) &&
     startAZ.test(newStr) &&
-    endAZ.test(newStr)
+    endAZ.test(newStr) &&
+    !blockReg.test(newStr)
   )
 }
