@@ -20,6 +20,13 @@ export const routesConfig = [
     component: () =>
       import('@/views/DeepClone.vue' /* webpackChunkName:"DeepClone" */),
     meta: { title: 'DeepClone' }
+  },
+  {
+    path: '/insu-vali',
+    name: 'InsuValidate',
+    component: () =>
+      import('@/views/InsuValidate.vue' /* webpackChunkName:"InsuValidate" */),
+    meta: { title: 'InsuValidate' }
   }
 ]
 Vue.use(Router)
