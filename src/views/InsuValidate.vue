@@ -12,7 +12,7 @@
     CnNameValidate,
     CheckNameType,
     EnNameValidate
-  } from '@/utils/insu-validate'
+  } from '@/utils/name-validate'
   export default {
     name: 'InsuValidate',
     filters: {},
