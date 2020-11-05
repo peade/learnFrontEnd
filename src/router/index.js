@@ -27,6 +27,13 @@ export const routesConfig = [
     component: () =>
       import('@/views/InsuValidate.vue' /* webpackChunkName:"InsuValidate" */),
     meta: { title: 'InsuValidate' }
+  },
+  {
+    path: '/kuaidi100',
+    name: 'KuaiDi100',
+    component: () =>
+      import('@/views/KuaiDi100.vue' /* webpackChunkName:"KuaiDi100" */),
+    meta: { title: 'KuaiDi100' }
   }
 ]
 Vue.use(Router)

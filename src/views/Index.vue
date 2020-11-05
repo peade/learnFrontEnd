@@ -53,7 +53,8 @@
 </script>
 <style lang="scss" scoped>
   .container {
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
   }
   a {
     padding: 10px;
