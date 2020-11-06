@@ -14,6 +14,7 @@
   </div>
 </template>
 <script>
+import '@/util/win-test'
 import routers from '@/router/routers'
 export default {
   name: 'Index',
@@ -29,7 +30,10 @@ export default {
   computed: {},
   watch: {},
   created() {},
-  mounted() {},
+  mounted() {
+    window.ctiOperate.addEle()
+    window.ctiOperate.eleOp()
+  },
   destroyed() {},
   methods: {
     goPage(item) {
