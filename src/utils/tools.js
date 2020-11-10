@@ -173,18 +173,3 @@ export const inViewport = el => {
     rect.right < window.innerWidth
   )
 }
-// 图片文件转base64
-export const ImgFileToBase64 = file => {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader()
-    reader.onload = res => {
-      console.log('loaded')
-      resolve(res.currentTarget.result)
-    }
-    reader.onerror = err => {
-      console.log(err)
-      reject(err)
-    }
-    reader.readAsDataURL(file)
-  })
-}

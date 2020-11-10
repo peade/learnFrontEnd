@@ -7,7 +7,13 @@
 </template>
 <script>
   import Compress from 'compressorjs'
-  import { ImgFileToBase64 } from '@/utils/tools'
+  import {
+    ImgFileToBase64,
+    Base64ToImgFile,
+    Base64ToBlob,
+    FileToBlob,
+    BlobToUrl
+  } from '@/utils/file-blob-base64'
   export default {
     name: 'CompressImage',
     filters: {},
@@ -28,13 +34,22 @@
     methods: {
       minify() {
         console.log('origin size', this.fileList[0].file.size)
-        const _this = this
+        FileToBlob(this.fileList[0].file).then(blob => {
+          console.log({ blob })
+          this.miniSrc = BlobToUrl(blob)
+          console.log(this.miniSrc)
+        })
+
+        // const _this = this
         new Compress(this.fileList[0].file, {
           success(result) {
             console.log('compressed size', result.size)
             ImgFileToBase64(result)
               .then(src => {
-                _this.miniSrc = src
+                // _this.miniSrc = src
+                console.log(Base64ToImgFile(src))
+                const blob = Base64ToBlob(src)
+                console.log('Base64ToBlob', blob.type)
               })
               .catch(e => {
                 console.log(e)
