@@ -23,7 +23,7 @@ export const KuaiDiCompany = {
   ganzhongnengda: '港中能达物流',
   guangdongyouzhengwuliu: '广东邮政物流',
   gongsuda: '共速达',
-  huitongkuaidi: '汇通快运',
+  huitongkuaidi: '百世汇通',
   hengluwuliu: '恒路物流',
   huaxialongwuliu: '华夏龙物流',
   haihongwangsong: '海红',
