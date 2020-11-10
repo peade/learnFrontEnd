@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>
+    <h1 v-test="'abd'">
       Index
     </h1>
     <img :src="imgSrc" v-imgerr="defaultSrc" />

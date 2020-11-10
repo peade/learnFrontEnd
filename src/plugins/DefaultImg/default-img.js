@@ -1,4 +1,4 @@
-function Install(Vue) {
+function install(Vue) {
   Vue.directive('imgerr', {
     // 当元素被插入到DOM中时...
     inserted: function() {},
@@ -14,8 +14,10 @@ function Install(Vue) {
     unbind: function() {}
   })
 }
-
+const plugin = {
+  install
+}
 // if (typeof window !== 'undefined' && window.Vue) {
 //   window.Vue.use(Install)
 // }
-export default Install
+export default plugin

@@ -8,11 +8,13 @@ import vant from 'vant'
 import 'vant/lib/index.css'
 import '@/styles/app.scss'
 import DefaultImg from '@/plugins/DefaultImg/default-img'
+import TestPlugin from '@/plugins/test-plugin'
 Vue.use(vant)
 Vue.config.productionTip = process.env.NODE_ENV === 'production'
 
 Vue.use(Confirm)
 Vue.use(DefaultImg)
+Vue.use(TestPlugin)
 new Vue({
   router,
   store,
