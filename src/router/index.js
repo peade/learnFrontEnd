@@ -34,6 +34,15 @@ export const routesConfig = [
     component: () =>
       import('@/views/KuaiDi100.vue' /* webpackChunkName:"KuaiDi100" */),
     meta: { title: 'KuaiDi100' }
+  },
+  {
+    path: '/compress-image',
+    name: 'CompressImage',
+    component: () =>
+      import(
+        '@/views/CompressImage.vue' /* webpackChunkName:"CompressImage" */
+      ),
+    meta: { title: 'CompressImage' }
   }
 ]
 Vue.use(Router)

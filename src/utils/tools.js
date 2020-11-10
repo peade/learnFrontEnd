@@ -162,3 +162,29 @@ export function GenerateUUID(len, radix) {
 
   return uuid.join('')
 }
+
+// 元素是否在视图里
+export const inViewport = el => {
+  const rect = el.getBoundingClientRect()
+  return (
+    rect.top > 0 &&
+    rect.bottom < window.innerHeight &&
+    rect.left > 0 &&
+    rect.right < window.innerWidth
+  )
+}
+// 图片文件转base64
+export const ImgFileToBase64 = file => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader()
+    reader.onload = res => {
+      console.log('loaded')
+      resolve(res.currentTarget.result)
+    }
+    reader.onerror = err => {
+      console.log(err)
+      reject(err)
+    }
+    reader.readAsDataURL(file)
+  })
+}
