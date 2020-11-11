@@ -88,3 +88,24 @@ export const BlobToFile = (blob, fileName) => {
 export const BlobToUrl = blob => {
   return URL.createObjectURL(blob)
 }
+
+// 文件大小
+export function getFileSize(fileSize) {
+  const Unit = {
+    b: 'B',
+    k: 'K',
+    m: 'M',
+    g: 'G'
+  }
+  let size = ''
+  if (fileSize < 1024) {
+    size = fileSize + Unit.b
+  } else if (fileSize < 1024 * 1024) {
+    size = (fileSize / 1024).toFixed(2) + Unit.k
+  } else if (fileSize < 1024 * 1024 * 1024) {
+    size = (fileSize / (1024 * 1024)).toFixed(2) + Unit.m
+  } else {
+    size = (fileSize / (1024 * 1024 * 1024)).toFixed(2) + Unit.g
+  }
+  return size
+}
