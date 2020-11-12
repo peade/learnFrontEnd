@@ -43,6 +43,13 @@ export const routesConfig = [
         '@/views/CompressImage.vue' /* webpackChunkName:"CompressImage" */
       ),
     meta: { title: 'CompressImage' }
+  },
+  {
+    path: '/ie-test',
+    name: 'IETest',
+    component: () =>
+      import('@/views/IETest/IETest.vue' /* webpackChunkName:"IETest" */),
+    meta: { title: 'IETest' }
   }
 ]
 Vue.use(Router)

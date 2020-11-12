@@ -27,6 +27,7 @@
     mounted() {
       console.log(typeof this.toType)
       console.log('IsPlainObject', IsPlainObject({}))
+      console.log('vue', window.$vue)
     },
     beforeUpdate() {},
     updated() {},
