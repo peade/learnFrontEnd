@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <button @click="testcti">Test Test</button>
     <router-link
       v-for="route in routeList"
       :key="route.name"
@@ -35,6 +36,9 @@
     destroyed() {},
     activated() {},
     methods: {
+      testcti() {
+        window.CtiSoftPhone.login()
+      },
       toType(obj) {
         const class2type = {}
         const toString = class2type.toString

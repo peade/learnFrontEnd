@@ -6,6 +6,7 @@
   </div>
 </template>
 <script>
+  // https://github.com/fengyuanchen/compressorjs
   import Compress from 'compressorjs'
   import {
     ImgFileToBase64,
