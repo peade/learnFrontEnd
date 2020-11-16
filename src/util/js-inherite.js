@@ -25,6 +25,7 @@ P2.__proto__.age = 12
 console.log(P1.age) //12
 console.log(P2.age) //12
 console.log(P1.name) //zhangsan
+console.log(P2.name)
 
 // 构造函数继承
 
