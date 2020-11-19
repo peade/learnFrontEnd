@@ -15,7 +15,7 @@
 </template>
 <script>
 import routers from '@/router/routers'
-import { fnToString } from '@/util/jq-tools'
+import { isPlainObject } from '@/util/jq-tools'
 export default {
   name: 'Index',
   filters: {},
@@ -40,7 +40,9 @@ export default {
       this.$router.push({ path: item.path })
     },
     test() {
-      console.log(fnToString(this.goPage))
+      console.log('isPlainObject', isPlainObject({}))
+      const proto = Object.getPrototypeOf({})
+      console.log(!!proto, proto)
     }
   }
 }

@@ -37,3 +37,39 @@ export function toArray(param) {
   const arr = []
   return arr.slice.call(param)
 }
+// 合并
+export function merge(first, second) {
+  let len = +second.length
+  let j = 0
+  let i = first.length
+  for (; j < len; j++) {
+    first[i++] = second[j]
+  }
+  first.length = i
+  return first
+}
+
+// 是否普通对象
+export function isPlainObject(obj) {
+  if (!obj || getType(obj) !== 'object') {
+    return false
+  }
+  const proto = Object.getPrototypeOf(obj)
+  // 无原型
+  // Objects with no prototype (e.g., `Object.create( null )`) are plain
+  if (!proto) {
+    return true
+  }
+  // Objects with prototype are plain iff they were constructed by a global Object function
+  // contructor 是全局的 Object function
+  const Ctor =
+    Object.hasOwnProperty.call(proto, 'constructor') && proto.constructor
+  return typeof Ctor === 'function' && fnToString(Ctor) === fnToString(Object)
+}
+
+export function isEmptyObject(obj) {
+  for (let name in obj) {
+    return false
+  }
+  return true
+}
