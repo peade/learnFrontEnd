@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-show="showRoutes">
     <van-row gutter="10">
       <van-col
         class="col"
@@ -15,6 +15,7 @@
 </template>
 <script>
 import routers from '@/router/routers'
+import { fnToString } from '@/util/jq-tools'
 export default {
   name: 'Index',
   filters: {},
@@ -23,17 +24,23 @@ export default {
   props: {},
   data() {
     return {
-      routers
+      routers,
+      showRoutes: false
     }
   },
   computed: {},
   watch: {},
   created() {},
-  mounted() {},
+  mounted() {
+    this.test()
+  },
   destroyed() {},
   methods: {
     goPage(item) {
       this.$router.push({ path: item.path })
+    },
+    test() {
+      console.log(fnToString(this.goPage))
     }
   }
 }

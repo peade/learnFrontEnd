@@ -6,7 +6,7 @@ const routers = [
       import(
         '../views/FrequentlyInterview.vue' /* webpackChunkName: "fre-inte" */
       ),
-    meta: { title: '高频面试题' }
+    meta: { title: '高频' }
   }
 ]
 export default routers
