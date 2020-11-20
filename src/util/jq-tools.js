@@ -73,3 +73,66 @@ export function isEmptyObject(obj) {
   }
   return true
 }
+
+function createOptions(str) {
+  const obj = {}
+  str.split(/\s+/).forEach(item => {
+    obj[item] = true
+  })
+  return obj
+}
+
+/**
+ *
+ * @param {object} options
+ * options.once
+ * options.stopOnFalse
+ * options.memory
+ */
+/* eslint-disable */
+export const jqCallbacks = function(options) {
+  options =
+    typeof options === 'string'
+      ? createOptions(options)
+      : Object.assign({}, options)
+  // flag to know if list is currently firing
+  let firing
+  // last fire value for non-forgettable lists
+  let memory
+  // flag to know if list was already fired
+  let fired
+  // flag to prevent firing
+  let locked
+  // actual callback list
+  let list = []
+  // queue of execution data for repeatable lists
+  let queue = []
+  // Index of currently firing callback (modified bby add/remove as needed)
+  let firingIndex = -1
+  // fire callbacks
+  const fire = function() {
+    // Enforce single-firing
+    locked = locked || options.once
+    // Execute callbacks for all pending executions
+    // respecting firingIndex overrides and runtime changes
+    fired = firing = true
+    for (; queue.length; firingIndex = -1) {
+      memory = queue.shift()
+      while (++firingIndex < list.length) {
+        // Run callback and check for early termination
+        if (
+          list[firingIndex].apply(memory[0], memory[1]) === false &&
+          options.stopOnFalse
+        ) {
+          // Jump to end and forget the data so . add doesn't re-fire
+          firingIndex = list.length
+          memory = false
+        }
+      }
+    }
+    // forget the data if we're done with it
+    if (!options.memory) {
+      memory = false
+    }
+  }
+}
