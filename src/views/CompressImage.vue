@@ -30,7 +30,9 @@
     computed: {},
     watch: {},
     created() {},
-    mounted() {},
+    mounted() {
+      this.testErr()
+    },
     destroyed() {},
     methods: {
       minify() {
@@ -58,6 +60,9 @@
             console.log(result.name)
           }
         })
+      },
+      testErr() {
+        throw new Error('新闻错误')
       }
     }
   }

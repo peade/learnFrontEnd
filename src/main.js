@@ -5,18 +5,13 @@ import store from './store'
 import vant from 'vant'
 import 'vant/lib/index.css'
 import { setBaseFontSize } from '@/utils/dom-device'
-
-import { CtiClass } from '@/fn-test/cti-class'
-import '@/fn-test/win-cti'
-// window.CtiSoftPhone.initOcxEle()
-try {
-  const ncti = new CtiClass()
-  ncti.print({ evtText: 'cticlass' })
-  // window.CtiSoftPhone = new CtiClass()
-  // window.CtiSoftPhone.setCtiInfo({ evtText: 'cticlass' })
-} catch (e) {
-  alert('cti class ' + e)
-}
+import { Performance } from 'web-report'
+Performance({
+  domain: 'http://127.0.0.1:7001/api/v1/report/web',
+  add: {
+    appId: '4N3YCjB1606018253703'
+  }
+})
 Vue.use(vant)
 Vue.config.productionTip = process.env.NODE_ENV === 'production'
 setBaseFontSize()
