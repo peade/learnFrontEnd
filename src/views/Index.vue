@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       routers,
-      showRoutes: false
+      showRoutes: true
     }
   },
   computed: {},
@@ -33,6 +33,10 @@ export default {
   created() {},
   mounted() {
     this.test()
+    console.log(this.cameraCase('a-b-c'))
+    setTimeout(() => {
+      this.testErr()
+    }, 3000)
   },
   destroyed() {},
   methods: {
@@ -43,6 +47,16 @@ export default {
       console.log('isPlainObject', isPlainObject({}))
       const proto = Object.getPrototypeOf({})
       console.log(!!proto, proto)
+    },
+    cameraCase(str) {
+      const rdashAlpha = /-([a-z])/g
+      return str.replace(rdashAlpha, function(matchStr, letter) {
+        console.log(matchStr, letter)
+        return letter.toUpperCase()
+      })
+    },
+    testErr() {
+      throw new Error('test new error')
     }
   }
 }
