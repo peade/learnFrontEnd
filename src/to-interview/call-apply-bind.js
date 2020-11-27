@@ -25,3 +25,21 @@ Function.prototype.myapply = function(context) {
   delete context.fn
   return result
 }
+
+export function instanceOf(left, right) {
+  let leftValue = left.__proto__
+  let rightValue = right.prototype
+  // const A = true
+  let bo = true
+  while (bo) {
+    if (leftValue === null) {
+      bo = false
+      return false
+    }
+    if (leftValue === rightValue) {
+      bo = false
+      return true
+    }
+    leftValue = leftValue.__proto__
+  }
+}
