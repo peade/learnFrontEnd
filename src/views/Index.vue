@@ -6,7 +6,7 @@
   </div>
 </template>
 <script>
-import routers from '@/router/router-module'
+import routers from '@/router/routes'
 export default {
   name: 'Index',
   filters: {},

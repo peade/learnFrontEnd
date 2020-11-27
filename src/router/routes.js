@@ -11,5 +11,12 @@ export default [
     component: () =>
       import('@/views/Loading/Loading' /* webpackChunkName: "Loading" */),
     meta: { title: 'Loading' }
+  },
+  {
+    path: '/half-circle',
+    name: 'HalfCircle',
+    component: () =>
+      import('@/views/HalfCircle' /* webpackChunkName: "half-circle" */),
+    meta: { title: 'HalfCirlce' }
   }
 ]
