@@ -18,5 +18,12 @@ export default [
     component: () =>
       import('@/views/HalfCircle' /* webpackChunkName: "half-circle" */),
     meta: { title: 'HalfCirlce' }
+  },
+  {
+    path: '/flip-down',
+    name: 'FlipDown',
+    component: () =>
+      import('@/views/FlipDown' /* webpackChunkName: "flip-down" */),
+    meta: { title: 'FlipDown' }
   }
 ]
