@@ -1,5 +1,12 @@
 const routers = [
   {
+    path: '/proto',
+    name: 'Proto',
+    component: () =>
+      import('../views/Proto.vue' /* webpackChunkName: "proto" */),
+    meta: { title: 'Proto' }
+  },
+  {
     path: '/fre-inte',
     name: 'FrequentlyInterview',
     component: () =>

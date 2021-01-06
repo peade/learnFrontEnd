@@ -34,9 +34,6 @@ export default {
   mounted() {
     this.test()
     console.log(this.cameraCase('a-b-c'))
-    setTimeout(() => {
-      this.testErr()
-    }, 3000)
   },
   destroyed() {},
   methods: {
