@@ -9,12 +9,17 @@ import 'vant/lib/index.css'
 import '@/styles/app.scss'
 import DefaultImg from '@/plugins/DefaultImg/default-img'
 import TestPlugin from '@/plugins/test-plugin'
+import Video from '@/plugins/NutVideo/index.js'
+
 Vue.use(vant)
 Vue.config.productionTip = process.env.NODE_ENV === 'production'
 
 Vue.use(Confirm)
 Vue.use(DefaultImg)
 Vue.use(TestPlugin)
+
+Video.install(Vue)
+
 new Vue({
   router,
   store,
