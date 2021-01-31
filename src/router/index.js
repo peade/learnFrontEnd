@@ -1,21 +1,36 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
-
-const routes = [
-  {
-    path: '/',
-    name: 'Index',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "index" */ '../views/Index.vue')
-  }
-]
-
 const router = new VueRouter({
-  routes
+  routes: [
+    {
+      path: '/',
+      name: 'Index',
+      component: () =>
+        import('@/views/Index.vue' /* webpackChunkName: "index" */)
+    },
+    {
+      path: '/text',
+      name: 'Text',
+      component: () => import('@/views/Text.vue' /* webpackChunkName: "Text" */)
+    },
+    {
+      path: '/doc',
+      name: 'Doc',
+      component: () => import('@/views/Doc.vue' /* webpackChunkName: "Doc" */)
+    },
+    {
+      path: '/embed',
+      name: 'Embed',
+      component: () =>
+        import('@/views/Embed.vue' /* webpackChunkName: "embed" */)
+    },
+    {
+      path: '/form',
+      name: 'Form',
+      component: () => import('@/views/Form.vue' /* webpackChunkName: "form" */)
+    }
+  ]
 })
 
 export default router
