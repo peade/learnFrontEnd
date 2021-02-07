@@ -26,5 +26,12 @@
   "bugs": {
     "url": "https://github.com/peade/learnFrontEnd/issues"
   },
-  "homepage": "https://github.com/peade/learnFrontEnd#readme"
+  "homepage": "https://github.com/peade/learnFrontEnd#readme",
+  "prettier": {
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "none",
+    "vueIndentScriptAndStyle": false
+  }
 }
