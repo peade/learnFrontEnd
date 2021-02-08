@@ -6,7 +6,7 @@ const gulpsass = require('gulp-sass')
 const sourcemaps = require('gulp-sourcemaps')
 const autoprefixer = require('gulp-autoprefixer')
 const eslint = require('gulp-eslint')
-const babel = require('gulp-babel')
+// const babel = require('gulp-babel')
 var changed = require('gulp-changed')
 // const proxy = proxyMiddleware('/services', {target: 'http://localhost:8090', changeOrigin: true})
 const proxy = proxyMiddleware('/services', {
@@ -40,24 +40,24 @@ const eslintTask = function () {
   )
 }
 exports.eslintTask = eslintTask
-const babelTask = function () {
-  return src(['./src/es6/**/*.js'])
-    .pipe(sourcemaps.init())
-    .pipe(babel())
-    .pipe(sourcemaps.write('.'))
-    .pipe(dest('./src/js'))
-}
-exports.babelTask = babelTask
+// const babelTask = function () {
+//   return src(['./src/es6/**/*.js'])
+//     .pipe(sourcemaps.init())
+//     .pipe(babel())
+//     .pipe(sourcemaps.write('.'))
+//     .pipe(dest('./src/js'))
+// }
+// exports.babelTask = babelTask
 
 const watchScss = function () {
   watch(['./src/styles/**/*.scss'], series(scssTask))
 }
 exports.watchScss = watchScss
 
-const watchBabel = function () {
-  watch(['./src/es6/**/*.js'], series(babelTask))
-}
-exports.watchBabel = watchBabel
+// const watchBabel = function () {
+//   watch(['./src/es6/**/*.js'], series(babelTask))
+// }
+// exports.watchBabel = watchBabel
 
 const watchEslint = function () {
   watch(['./src/es6/**/*.js'], series(eslintTask))
@@ -89,6 +89,6 @@ exports.server = parallel(
   syncBrowser,
   watchHtml,
   watchEslint,
-  watchBabel,
+  // watchBabel,
   watchScss
 )
