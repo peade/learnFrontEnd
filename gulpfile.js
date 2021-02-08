@@ -1,5 +1,5 @@
-const gulp = require('gulp')
-const {series, parallel, src, dest, watch} = require('gulp')
+// const gulp = require('gulp')
+const { series, parallel, src, dest, watch } = require('gulp')
 const browserSync = require('browser-sync')
 const proxyMiddleware = require('http-proxy-middleware')
 const gulpsass = require('gulp-sass')
@@ -9,8 +9,14 @@ const eslint = require('gulp-eslint')
 const babel = require('gulp-babel')
 var changed = require('gulp-changed')
 // const proxy = proxyMiddleware('/services', {target: 'http://localhost:8090', changeOrigin: true})
-const proxy = proxyMiddleware('/services', {target: 'http://localhost:8080', changeOrigin: true})
-const imgProxy = proxyMiddleware('/platformData', {target: 'http://localhost:8080', changeOrigin: true})
+const proxy = proxyMiddleware('/services', {
+  target: 'http://localhost:8080',
+  changeOrigin: true
+})
+const imgProxy = proxyMiddleware('/platformData', {
+  target: 'http://localhost:8080',
+  changeOrigin: true
+})
 const reload = browserSync.reload
 
 const scssTask = function () {
@@ -21,15 +27,17 @@ const scssTask = function () {
     .pipe(sourcemaps.write('.'))
     .pipe(changed('./src/styles'))
     .pipe(dest('./src/styles'))
-    .pipe(reload({stream: true}))
+    .pipe(reload({ stream: true }))
 }
 exports.scssTask = scssTask
 const eslintTask = function () {
-  return src(['./src/es6/**/*.js'])
-    .pipe(eslint({quiet: true}))
-    .pipe(eslint.format())
-    // .pipe(eslint.failAfterError('failes'))
-    .pipe(reload({stream: true}))
+  return (
+    src(['./src/es6/**/*.js'])
+      .pipe(eslint({ quiet: true }))
+      .pipe(eslint.format())
+      // .pipe(eslint.failAfterError('failes'))
+      .pipe(reload({ stream: true }))
+  )
 }
 exports.eslintTask = eslintTask
 const babelTask = function () {
@@ -57,8 +65,7 @@ const watchEslint = function () {
 exports.watchEslint = watchEslint
 
 const htmlChange = function () {
-  return src(['./src/pages/**/*.html'])
-    .pipe(reload({stream: true}))
+  return src(['./src/pages/**/*.html']).pipe(reload({ stream: true }))
 }
 const watchHtml = function () {
   watch(['./src/pages/**/*.html'], htmlChange)
@@ -78,4 +85,10 @@ const syncBrowser = function () {
 }
 exports.syncBrowser = syncBrowser
 
-exports.server = parallel(syncBrowser, watchHtml, watchEslint, watchBabel, watchScss)
+exports.server = parallel(
+  syncBrowser,
+  watchHtml,
+  watchEslint,
+  watchBabel,
+  watchScss
+)

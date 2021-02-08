@@ -4,7 +4,8 @@
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "gulp server"
   },
   "repository": {
     "type": "git",
@@ -37,5 +38,12 @@
   "browserslist": [
     "Android >= 4",
     "iOS >= 7"
-  ]
+  ],
+  "prettier": {
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "none",
+    "vueIndentScriptAndStyle": false
+  }
 }
