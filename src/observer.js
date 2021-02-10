@@ -19,7 +19,7 @@ class Observer {
     // 递归处理
     let childObj = observe(val)
     Object.defineProperty(data, key, {
-      enuselfrable: true, // 可枚举
+      enumerable: true, // 可枚举
       configurable: false, // 不可再define更改
       get() {
         if (Dep.target) {
