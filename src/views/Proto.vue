@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div>prototype</div>
 </template>
 <script>
 export default {
@@ -14,11 +14,7 @@ export default {
   computed: {},
   watch: {},
   created() {},
-  mounted() {
-    this.protoMulti()
-    this.protoTp()
-    this.ctor()
-  },
+  mounted() {},
   destroyed() {},
   methods: {
     protoMulti() {
@@ -65,6 +61,69 @@ export default {
       Rabbit.prototype = {
         jumps: true,
         constructor: Rabbit
+      }
+    },
+    protoPart01() {
+      console.log('------learn prototype-------')
+      const anotherObject = { a: 2 }
+      const myObject = Object.create(anotherObject)
+      console.log(myObject.a)
+      for (let k in myObject) {
+        console.log(k)
+      }
+      myObject.a++
+      console.log(myObject.a, anotherObject.a, myObject)
+
+      function Foo(name) {
+        this.name = name
+      }
+      Foo.prototype.constructor === Foo
+      Foo.prototype.myName = function() {
+        return this.name
+      }
+      const f = new Foo()
+      console.log(
+        'Object.getPrototypeOf( f ) === Foo.prototype',
+        Object.getPrototypeOf(f) === Foo.prototype
+      )
+      console.log('f.constructor === Foo', f.constructor === Foo)
+
+      const a = new Foo('a')
+      const b = new Foo('b')
+      console.log(a.myName(), b.myName())
+    },
+    protoPart02() {
+      function Foo(name) {
+        this.name = name
+      }
+      Foo.prototype.myName = function() {
+        return this.name
+      }
+
+      function Bar(name, label) {
+        Foo.call(this, name)
+        this.label = label
+      }
+      // 创建一个新得Bar.prototype 对象，并关联到Foo.prototype
+      Bar.prototype = Object.create(Foo.prototype) // 没有Bar.prototype.constructor, 如果需要，则需要手动进行修复
+
+      // es6 的写法
+      Object.setPrototypeOf(Bar.prototype, Foo.prototype)
+
+      Bar.prototype.myLabel = function() {
+        return this.label
+      }
+
+      const a = new Bar('a', 'obj a')
+      console.log(a.myName(), a.myLabel())
+    },
+    objCreatePolyfill() {
+      if (!Object.create) {
+        Object.create = function(o) {
+          function F() {}
+          F.prototype = o
+          return new F()
+        }
       }
     }
   }
