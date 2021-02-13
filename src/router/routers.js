@@ -39,6 +39,31 @@ const routers = [
     meta: { title: '类' }
   },
   {
+    path: '/learn-generator',
+    name: 'LearnGnerator',
+    component: () =>
+      import(
+        '../views/Generator.vue' /* webpackChunkName: "fre-learn-generator" */
+      ),
+    meta: { title: 'Generator' }
+  },
+  {
+    path: '/proxy-reflect',
+    name: 'ProxyReflect',
+    component: () =>
+      import(
+        '../views/ProxyReflect.vue' /* webpackChunkName: "fre-proxy-reflect" */
+      ),
+    meta: { title: '代理反射' }
+  },
+  {
+    path: '/currying',
+    name: 'Currying',
+    component: () =>
+      import('../views/Currying.vue' /* webpackChunkName: "fre-currying" */),
+    meta: { title: '柯里化' }
+  },
+  {
     path: '/fre-inte',
     name: 'FrequentlyInterview',
     component: () =>
