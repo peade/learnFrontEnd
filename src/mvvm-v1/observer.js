@@ -47,3 +47,5 @@ function observe(value) {
   }
   return new Observer(value)
 }
+
+export default Observer

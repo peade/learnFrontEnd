@@ -6,6 +6,23 @@
     <title>Document</title>
   </head>
   <body>
-    <div>webpack 启动</div>
+    <!-- <div id="app">
+      <input type="text" v-model="txt" />
+      <div>{{txt}}</div>
+      <div>{{computedTxt}}</div>
+      <button v-on:click="clickMe">点我</button>
+    </div> -->
+    <div id="mvvm-app">
+      <input type="text" v-model="someStr" />
+      <input type="text" v-model="child.someStr" />
+
+      <p>{{ getHelloWord }}</p>
+      <p v-html="htmlStr"></p>
+      <button v-on:click="clickBtn">change model</button>
+      <div>
+        <input type="text" v-model="txt" />
+        <p>{{ txt }}</p>
+      </div>
+    </div>
   </body>
 </html>
