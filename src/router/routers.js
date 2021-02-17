@@ -64,6 +64,13 @@ const routers = [
     meta: { title: '柯里化' }
   },
   {
+    path: '/ds-algo',
+    name: 'DsAlgo',
+    component: () =>
+      import('../views/DsAlgo.vue' /* webpackChunkName: "fre-ds-algo" */),
+    meta: { title: '数据结构与算法一' }
+  },
+  {
     path: '/fre-inte',
     name: 'FrequentlyInterview',
     component: () =>
