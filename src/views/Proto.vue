@@ -14,7 +14,9 @@ export default {
   computed: {},
   watch: {},
   created() {},
-  mounted() {},
+  mounted() {
+    this.classExtendBasedProto()
+  },
   destroyed() {},
   methods: {
     protoMulti() {
@@ -125,6 +127,30 @@ export default {
           return new F()
         }
       }
+    },
+    classExtendBasedProto() {
+      function Rectangle(width, height) {
+        this.width = width
+        this.height = height
+      }
+      Rectangle.prototype.getArea = function() {
+        return this.width * this.height
+      }
+      function Square(length) {
+        Rectangle.call(this, length, length)
+      }
+      Square.prototype = Object.create(Rectangle.prototype, {
+        constructor: {
+          value: Square,
+          enumerable: false,
+          writable: false,
+          configurable: false
+        }
+      })
+      const square = new Square(3)
+      console.log(square.getArea())
+      console.log(square instanceof Square)
+      console.log(square instanceof Rectangle)
     }
   }
 }

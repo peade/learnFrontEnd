@@ -15,7 +15,7 @@
 </template>
 <script>
 import routers from '@/router/routers'
-import { isPlainObject } from '@/util/jq-tools'
+// import { isPlainObject } from '@/util/jq-tools'
 export default {
   name: 'Index',
   filters: {},
@@ -31,19 +31,18 @@ export default {
   computed: {},
   watch: {},
   created() {},
-  mounted() {
-    this.test()
-    console.log(this.cameraCase('a-b-c'))
-  },
+  mounted() {},
   destroyed() {},
   methods: {
     goPage(item) {
       this.$router.push({ path: item.path })
     },
     test() {
-      console.log('isPlainObject', isPlainObject({}))
-      const proto = Object.getPrototypeOf({})
-      console.log(!!proto, proto)
+      function a() {
+        this.a = 1111
+      }
+      a.b = 123123
+      console.log(a, a.b)
     },
     cameraCase(str) {
       const rdashAlpha = /-([a-z])/g
@@ -51,9 +50,6 @@ export default {
         console.log(matchStr, letter)
         return letter.toUpperCase()
       })
-    },
-    testErr() {
-      throw new Error('test new error')
     }
   }
 }
