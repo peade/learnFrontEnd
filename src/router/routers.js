@@ -71,6 +71,13 @@ const routers = [
     meta: { title: '数据结构与算法一' }
   },
   {
+    path: '/input',
+    name: 'InputId',
+    component: () =>
+      import('../views/html/InputId.vue' /* webpackChunkName: "fre-input" */),
+    meta: { title: 'Input' }
+  },
+  {
     path: '/fre-inte',
     name: 'FrequentlyInterview',
     component: () =>
