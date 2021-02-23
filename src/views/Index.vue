@@ -31,7 +31,10 @@ export default {
   computed: {},
   watch: {},
   created() {},
-  mounted() {},
+  mounted() {
+    this.hashDemo()
+    history.replaceState('', '', location.href + '?a=b')
+  },
   destroyed() {},
   methods: {
     goPage(item) {
@@ -50,6 +53,12 @@ export default {
         console.log(matchStr, letter)
         return letter.toUpperCase()
       })
+    },
+    hashDemo() {
+      // hash change只能监听location.replace方法对url的改变
+      window.onhashchange = function(event) {
+        console.log(event)
+      }
     }
   }
 }
