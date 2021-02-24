@@ -7,6 +7,15 @@ const routers = [
     meta: { title: '原型' }
   },
   {
+    path: '/proto-inherit',
+    name: 'ProtoInherit',
+    component: () =>
+      import(
+        '../views/ProtoInherit.vue' /* webpackChunkName: "proto-inherit" */
+      ),
+    meta: { title: '原型继承' }
+  },
+  {
     path: '/iterator',
     name: 'Iterator',
     component: () =>
