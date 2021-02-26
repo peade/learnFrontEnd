@@ -80,6 +80,13 @@ const routers = [
     meta: { title: '数据结构与算法一' }
   },
   {
+    path: '/stack',
+    name: 'Stack',
+    component: () =>
+      import('../views/Stack.vue' /* webpackChunkName: "fre-stack" */),
+    meta: { title: '栈' }
+  },
+  {
     path: '/input',
     name: 'InputId',
     component: () =>
