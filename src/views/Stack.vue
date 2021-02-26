@@ -14,7 +14,9 @@ export default {
   computed: {},
   watch: {},
   created() {},
-  mounted() {},
+  mounted() {
+    console.log(this.decimalToBinary(100))
+  },
   destroyed() {},
   methods: {
     stackClass() {
@@ -59,6 +61,11 @@ export default {
           if (this.isEmpty()) {
             return ''
           }
+          let objString = `${this.items[0]}`
+          for (let i = 1; i < this.count; i++) {
+            objString = `${objString},${this.items[i]}`
+          }
+          return objString
         }
       }
 
@@ -66,6 +73,23 @@ export default {
       stack.push(5)
       stack.push(8)
       return Stack
+    },
+    decimalToBinary(decNumber) {
+      const Stack = this.stackClass()
+      const remStack = new Stack()
+      let number = decNumber
+      let rem
+      let binaryString = ''
+
+      while (number > 0) {
+        rem = Math.floor(number % 2)
+        remStack.push(rem)
+        number = Math.floor(number / 2)
+      }
+      while (!remStack.isEmpty()) {
+        binaryString += remStack.pop().toString()
+      }
+      return binaryString
     }
   }
 }
