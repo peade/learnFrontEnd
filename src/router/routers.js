@@ -87,6 +87,29 @@ const routers = [
     meta: { title: '栈' }
   },
   {
+    path: '/queue',
+    name: 'Queue',
+    component: () =>
+      import('../views/Queue.vue' /* webpackChunkName: "fre-queue" */),
+    meta: { title: '队列' }
+  },
+  {
+    path: '/linked-list',
+    name: 'LinkedList',
+    component: () =>
+      import(
+        '../views/linked-list/LinkedList.vue' /* webpackChunkName: "fre-linked-list" */
+      ),
+    meta: { title: '链表' }
+  },
+  {
+    path: '/sort',
+    name: 'Sort',
+    component: () =>
+      import('../views/sort/DataSort.vue' /* webpackChunkName: "fre-sort" */),
+    meta: { title: '排序' }
+  },
+  {
     path: '/input',
     name: 'InputId',
     component: () =>
