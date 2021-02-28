@@ -77,7 +77,7 @@ const routers = [
     name: 'DsAlgo',
     component: () =>
       import('../views/DsAlgo.vue' /* webpackChunkName: "fre-ds-algo" */),
-    meta: { title: '数据结构与算法一' }
+    meta: { title: '算法示例' }
   },
   {
     path: '/stack',
@@ -108,6 +108,20 @@ const routers = [
     component: () =>
       import('../views/sort/DataSort.vue' /* webpackChunkName: "fre-sort" */),
     meta: { title: '排序' }
+  },
+  {
+    path: '/shuffle',
+    name: 'Shuffle',
+    component: () =>
+      import('../views/Shuffle.vue' /* webpackChunkName: "fre-shuffle" */),
+    meta: { title: '乱序' }
+  },
+  {
+    path: '/char-code',
+    name: 'CharCode',
+    component: () =>
+      import('../views/CharCode.vue' /* webpackChunkName: "fre-char-code" */),
+    meta: { title: '字节值' }
   },
   {
     path: '/input',
