@@ -124,6 +124,33 @@ const routers = [
     meta: { title: '字节值' }
   },
   {
+    path: '/singleton',
+    name: 'Singleton',
+    component: () =>
+      import(
+        '../views/design-pattern/Singleton.vue' /* webpackChunkName: "fre-singleton" */
+      ),
+    meta: { title: '单例' }
+  },
+  {
+    path: '/strategy',
+    name: 'Strategy',
+    component: () =>
+      import(
+        '../views/design-pattern/Strategy.vue' /* webpackChunkName: "fre-strategy" */
+      ),
+    meta: { title: '策略' }
+  },
+  {
+    path: '/proxy-pattern',
+    name: 'ProxyPattern',
+    component: () =>
+      import(
+        '../views/design-pattern/ProxyPattern.vue' /* webpackChunkName: "fre-proxy-pattern" */
+      ),
+    meta: { title: '代理模式' }
+  },
+  {
     path: '/input',
     name: 'InputId',
     component: () =>
