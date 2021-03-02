@@ -26,9 +26,23 @@ export default {
       console.dir(window.inputTest)
       console.log(window.inputTest.value)
     }, 100)
+    this.testRegStr()
   },
   destroyed() {},
-  methods: {}
+  methods: {
+    testRegStr() {
+      const a = new RegExp('abc', 'i')
+      console.log(a)
+      const arr = a
+        .toString()
+        .replace('/', '')
+        .split('/')
+
+      const b = new RegExp(arr[0], arr[1] || '')
+      console.log(b)
+      console.log(a === b)
+    }
+  }
 }
 </script>
 <style scoped lang="scss"></style>
