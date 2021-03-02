@@ -124,6 +124,71 @@ export default {
       person2.sayName() // "gsr"
 
       console.log(person.friends) // ["jack", "tom", "rose", "lily", "kobe"]
+    },
+    // 寄生式继承
+    parasitismInherite() {
+      function objectCopy(obj) {
+        function Fun() {}
+        Fun.prototype = obj
+        return new Fun()
+      }
+      function createAnother(original) {
+        let clone = objectCopy(original)
+        clone.getName = function() {
+          console.log(this.name)
+        }
+        return clone
+      }
+      let person = {
+        name: 'yhd',
+        friends: ['rose', 'tom', 'jack']
+      }
+      let person1 = createAnother(person)
+      person1.friends.push('lily')
+      console.log(person1.friends)
+      person1.getName() // yhd
+
+      let person2 = createAnother(person)
+      console.log(person2.friends) // ["rose", "tom", "jack", "lily"]
+    },
+    // 寄生式组合继承
+    parasitismCopositeInherite() {
+      function objectCopy(obj) {
+        function Fun() {}
+        Fun.prototype = obj
+        return new Fun()
+      }
+      function inheritPrototype(child, parent) {
+        let prototype = objectCopy(parent.prototype)
+        prototype.constructor = child
+        child.prototype = prototype
+      }
+
+      function Parent(name) {
+        this.name = name
+        this.friends = ['rose', 'lily', 'tom']
+      }
+
+      Parent.prototype.sayName = function() {
+        console.log(this.name)
+      }
+
+      function Child(name, age) {
+        Parent.call(this, name)
+        this.age = age
+      }
+
+      inheritPrototype(Child, Parent)
+      let child1 = new Child('yhd', 23)
+      child1.sayAge() // 23
+      child1.sayName() // yhd
+      child1.friends.push('jack')
+      console.log(child1.friends) // ["rose", "lily", "tom", "jack"]
+
+      let child2 = new Child('yl', 22)
+      child2.sayAge() // 22
+      child2.sayName() // yl
+      console.log(child2.friends) // ["rose", "lily", "tom"]
     }
   }
 }
