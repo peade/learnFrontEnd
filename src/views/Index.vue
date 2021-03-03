@@ -34,6 +34,10 @@ export default {
   mounted() {
     this.hashDemo()
     history.replaceState('', '', location.href + '?a=b')
+    document.body.onclick = function(e) {
+      console.dir(this)
+      console.log(e)
+    }
   },
   destroyed() {},
   methods: {
