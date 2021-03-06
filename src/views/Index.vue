@@ -32,15 +32,22 @@ export default {
   watch: {},
   created() {},
   mounted() {
-    this.hashDemo()
-    history.replaceState('', '', location.href + '?a=b')
-    document.body.onclick = function(e) {
-      console.dir(this)
-      console.log(e)
-    }
+    // this.hashDemo()
+    // history.replaceState('', '', location.href + '?a=b')
+    // this.testClass()
+    // this.domEvt()
   },
   destroyed() {},
   methods: {
+    domEvt() {
+      document.body.onclick = function(e) {
+        console.dir(this)
+        console.log(e)
+      }
+      document.body.addEventListener('click', function() {
+        console.log('add evt', this)
+      })
+    },
     goPage(item) {
       this.$router.push({ path: item.path })
     },
@@ -63,6 +70,39 @@ export default {
       window.onhashchange = function(event) {
         console.log(event)
       }
+    },
+    testClass() {
+      class a {
+        test() {
+          console.log(111)
+        }
+      }
+      class b {
+        constructor(a) {
+          this.a = a
+        }
+        test() {
+          console.log(this.a)
+        }
+      }
+      console.dir(a)
+      console.dir(b)
+      console.dir(new a())
+      console.dir(new b())
+    },
+    jsonStr() {
+      const reg = /\d+/
+      const reg2 = new RegExp(reg)
+      console.log(reg2.test('12312312'))
+      const obj = {
+        a: 1,
+        date: new Date(),
+        reg: /\d+/
+      }
+      const str = JSON.stringify(obj)
+      console.log(str)
+      const data = JSON.parse(str)
+      console.log(data)
     }
   }
 }
