@@ -49,6 +49,8 @@ export default {
     this.testCountingSort()
     this.testBucketSort()
     this.testArrSort()
+
+    this.testNewFn()
   },
   destroyed() {},
   methods: {
@@ -103,6 +105,14 @@ export default {
         return a - b
       })
       console.log(array)
+    },
+    testNewFn() {
+      function a(p) {
+        console.log(p)
+      }
+      const b = new Function('return ' + a)()
+      b(1)
+      console.log(a === b, b)
     }
   }
 }
@@ -115,8 +125,10 @@ export default {
   margin: 30px 0;
 }
 .a::after {
-  content: '';
+  content: ' ';
+  display: block;
   width: 100%;
+  height: 1px;
 }
 .b {
   margin: 20px 0;
