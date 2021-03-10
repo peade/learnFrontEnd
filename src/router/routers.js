@@ -158,6 +158,13 @@ const routers = [
     meta: { title: 'Input' }
   },
   {
+    path: '/back',
+    name: 'Back',
+    component: () =>
+      import('../views/Back.vue' /* webpackChunkName: "fre-back" */),
+    meta: { title: 'go back' }
+  },
+  {
     path: '/fre-inte',
     name: 'FrequentlyInterview',
     component: () =>
