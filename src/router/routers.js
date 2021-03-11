@@ -165,6 +165,13 @@ const routers = [
         '../views/FrequentlyInterview.vue' /* webpackChunkName: "fre-inte" */
       ),
     meta: { title: '其他' }
+  },
+  {
+    path: '/test-back',
+    name: 'TestBack',
+    component: () =>
+      import('../views/BackTest.vue' /* webpackChunkName: "fre-back-test" */),
+    meta: { title: 'Back Test' }
   }
 ]
 export default routers
