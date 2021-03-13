@@ -9,13 +9,15 @@
   },
   "devDependencies": {
     "html-webpack-plugin": "^4.5.1",
+    "raw-loader": "^4.0.2",
     "webpack": "^5.19.0",
     "webpack-cli": "^4.4.0",
     "webpack-dev-server": "^3.11.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack serve"
+    "dev": "webpack serve",
+    "build": "webpack build"
   },
   "repository": {
     "type": "git",
@@ -26,5 +28,12 @@
   "bugs": {
     "url": "https://github.com/peade/learnFrontEnd/issues"
   },
-  "homepage": "https://github.com/peade/learnFrontEnd#readme"
+  "homepage": "https://github.com/peade/learnFrontEnd#readme",
+  "prettier": {
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "none",
+    "vueIndentScriptAndStyle": false
+  }
 }
