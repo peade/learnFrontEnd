@@ -2,7 +2,7 @@
 const { series, parallel, src, dest, watch } = require('gulp')
 const browserSync = require('browser-sync')
 const proxyMiddleware = require('http-proxy-middleware')
-const gulpsass = require('gulp-sass')
+const gulpsass = require('gulp-dart-sass')
 const sourcemaps = require('gulp-sourcemaps')
 const autoprefixer = require('gulp-autoprefixer')
 const eslint = require('gulp-eslint')
