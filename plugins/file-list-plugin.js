@@ -3,7 +3,6 @@ class FileListPlugin {
     this.options = options
   }
   apply(compiler) {
-    console.log(compiler)
     // emit 是异步hook, 使用tapAsync触及它，还可以使用tapPromise/tap(同步)
     compiler.hooks.emit.tapAsync('FileListPlugin', (compilation, callback) => {
       // 在生成文件中，创建一个头部字符串
@@ -23,6 +22,10 @@ class FileListPlugin {
         }
       }
       callback(null, 11)
+    })
+
+    compiler.hooks.done.tap('My Plugin', (stats) => {
+      console.log('Bravo!')
     })
   }
 }
