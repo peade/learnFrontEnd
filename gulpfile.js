@@ -8,6 +8,8 @@ const autoprefixer = require('gulp-autoprefixer')
 const eslint = require('gulp-eslint')
 const babel = require('gulp-babel')
 var changed = require('gulp-changed')
+const { replaceFn } = require('./plugins/text-replace')
+
 // const proxy = proxyMiddleware('/services', {target: 'http://localhost:8090', changeOrigin: true})
 const proxy = proxyMiddleware('/services', {
   target: 'http://localhost:8080',
@@ -29,6 +31,13 @@ const scssTask = function () {
     .pipe(dest('./src/styles'))
     .pipe(reload({ stream: true }))
 }
+
+exports.textReplace = function () {
+  return src(['./src/assets/**/*.txt'])
+    .pipe(replaceFn(/a/g, 'b'))
+    .pipe(dest('dist'))
+}
+
 exports.scssTask = scssTask
 const eslintTask = function () {
   return (
