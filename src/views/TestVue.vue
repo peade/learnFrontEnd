@@ -32,6 +32,7 @@ export default {
       this.list.length = 3
       this.arr[0].a = 34
       this.arr[0].c = 19
+      this.arr.length = 1
     }, 3000)
   },
   destroyed() {},
