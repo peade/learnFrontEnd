@@ -179,6 +179,13 @@ const routers = [
     component: () =>
       import('../views/BackTest.vue' /* webpackChunkName: "fre-back-test" */),
     meta: { title: 'Back Test' }
+  },
+  {
+    path: '/test-vue',
+    name: 'TestVue',
+    component: () =>
+      import('../views/TestVue.vue' /* webpackChunkName: "fre-test-vue" */),
+    meta: { title: 'Test Vue' }
   }
 ]
 export default routers
