@@ -158,6 +158,13 @@ const routers = [
     meta: { title: 'Input' }
   },
   {
+    path: '/back',
+    name: 'Back',
+    component: () =>
+      import('../views/Back.vue' /* webpackChunkName: "fre-back" */),
+    meta: { title: 'go back' }
+  },
+  {
     path: '/fre-inte',
     name: 'FrequentlyInterview',
     component: () =>
@@ -179,6 +186,13 @@ const routers = [
     component: () =>
       import('../views/UserInfo.vue' /* webpackChunkName: "fre-user-info" */),
     meta: { title: 'user-info' }
+  },
+  {
+    path: '/test-vue',
+    name: 'TestVue',
+    component: () =>
+      import('../views/TestVue.vue' /* webpackChunkName: "fre-test-vue" */),
+    meta: { title: 'Test Vue' }
   }
 ]
 export default routers

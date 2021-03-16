@@ -36,6 +36,7 @@ export default {
     // history.replaceState('', '', location.href + '?a=b')
     // this.testClass()
     // this.domEvt()
+    this.forInForOf()
   },
   destroyed() {},
   methods: {
@@ -103,6 +104,19 @@ export default {
       console.log(str)
       const data = JSON.parse(str)
       console.log(data)
+    },
+    forInForOf() {
+      const obj = { a: 1, b: 2 }
+      for (let x in obj) {
+        console.log(x)
+      }
+      const arr = [1, null, 2, 3]
+      for (let x in arr) {
+        console.log(x)
+      }
+      for (let y of arr) {
+        console.log(y)
+      }
     }
   }
 }
