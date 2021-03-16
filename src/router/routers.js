@@ -151,6 +151,13 @@ const routers = [
     meta: { title: '代理模式' }
   },
   {
+    path: '/deep-clone',
+    name: 'DeepClone',
+    component: () =>
+      import('../views/DeepClone.vue' /* webpackChunkName: "fre-deep-clone" */),
+    meta: { title: '深克隆' }
+  },
+  {
     path: '/input',
     name: 'InputId',
     component: () =>
