@@ -151,6 +151,13 @@ const routers = [
     meta: { title: '代理模式' }
   },
   {
+    path: '/deep-clone',
+    name: 'DeepClone',
+    component: () =>
+      import('../views/DeepClone.vue' /* webpackChunkName: "fre-deep-clone" */),
+    meta: { title: '深克隆' }
+  },
+  {
     path: '/input',
     name: 'InputId',
     component: () =>
@@ -179,6 +186,13 @@ const routers = [
     component: () =>
       import('../views/BackTest.vue' /* webpackChunkName: "fre-back-test" */),
     meta: { title: 'Back Test' }
+  },
+  {
+    path: '/user-info',
+    name: 'UserInfo',
+    component: () =>
+      import('../views/UserInfo.vue' /* webpackChunkName: "fre-user-info" */),
+    meta: { title: 'user-info' }
   },
   {
     path: '/test-vue',
