@@ -200,6 +200,13 @@ const routers = [
     component: () =>
       import('../views/TestVue.vue' /* webpackChunkName: "fre-test-vue" */),
     meta: { title: 'Test Vue' }
+  },
+  {
+    path: '/regex',
+    name: 'Regex',
+    component: () =>
+      import('../views/Regex.vue' /* webpackChunkName: "fre-regex" */),
+    meta: { title: '正则' }
   }
 ]
 export default routers

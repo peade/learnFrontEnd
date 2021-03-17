@@ -134,3 +134,11 @@ export function GetDeviceInfo() {
     browser: GetBrowser()
   }
 }
+
+// 打印函数名字
+export function LogFnName(fn) {
+  return function(...args) {
+    console.log(fn.name)
+    fn(...args)
+  }
+}
