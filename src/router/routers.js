@@ -195,6 +195,13 @@ const routers = [
     meta: { title: 'user-info' }
   },
   {
+    path: '/reqanim',
+    name: 'ReqAnim',
+    component: () =>
+      import('../views/ReqAnim.vue' /* webpackChunkName: "fre-req-anim" */),
+    meta: { title: 'reqanim' }
+  },
+  {
     path: '/test-vue',
     name: 'TestVue',
     component: () =>

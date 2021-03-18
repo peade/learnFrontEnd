@@ -28,10 +28,10 @@ export default {
   mounted() {
     setTimeout(() => {
       console.log('timeout')
-      this.list[2] = 10
+      this.list[2] = 14
       this.list.length = 3
-      this.arr[0].a = 34
-      this.arr[0].c = 19
+      this.arr[0] = { a: 34, b: 16, c: 19 }
+      this.arr.length = 1
     }, 3000)
   },
   destroyed() {},
