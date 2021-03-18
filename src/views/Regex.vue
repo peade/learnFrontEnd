@@ -30,6 +30,10 @@ export default {
     LogFnName(this.lookBefore)()
     LogFnName(this.lookAfter)()
     LogFnName(this.milliFormat)('123123123123111')
+
+    LogFnName(this.execY)()
+    LogFnName(this.strMatch)()
+    LogFnName(this.strSplit)()
   },
   destroyed() {},
   methods: {
@@ -126,6 +130,50 @@ export default {
     },
     milliFormat(numStr) {
       console.log(numStr.replace(/(?=(?!^)(\d{3})+$)/g, ','))
+    },
+    // 位置搜索
+    execY() {
+      const str = `let varName = "value"`
+      const reg = /\w+/y
+      reg.lastIndex = 3
+      console.log(reg.exec(str))
+      reg.lastIndex = 4
+      console.log(reg.exec(str))
+    },
+    // 字符串方法
+    strMatch() {
+      const str = 'I love JavaScript'
+
+      // str.match(regexp) 方法在字符串 str 中找到匹配 regexp 的字符。
+      // 如果 regexp 不带有 g 标记，则它以数组的形式返回第一个匹配项，其中包含分组和属性 index（匹配项的位置）、input（输入字符串，等于 str）：
+      const reg1 = /Java(Scri(pt))/
+      const res1 = str.match(reg1)
+      // 如果 regexp 带有 g 标记，则它将所有匹配项的数组作为字符串返回，而不包含分组和其他详细信息
+      const reg2 = /Java(Script)/g
+      const res2 = str.match(reg2)
+      // 如果没有匹配项，则无论是否带有标记 g ，都将返回 null
+      console.log(res1)
+      console.log(res2)
+    },
+    strMatchAll() {
+      /**
+       * 它返回包含匹配项的可迭代对象，而不是数组。我们可以用 Array.from 从中得到一个常规数组。
+       * 每个匹配项均以包含分组的数组形式返回（返回格式与不带 g 标记的 str.match 相同）。
+       * 如果没有结果，则返回的不是 null，而是一个空的可迭代对象。
+       */
+      const str = '<h1>Hello, world!</h1>'
+      const regexp = /<(.*?)>/g
+      const matchAll = str.matchAll(regexp)
+      console.log(matchAll) // [object RegExp String Iterator]，不是数组，而是一个可迭代对象
+      const allArr = Array.from(matchAll) // 现在返回的是数组
+      let firstMatch = allArr[0]
+      console.log(firstMatch[0]) // <h1>
+      console.log(firstMatch[1]) // h1
+      console.log(firstMatch.index) // 0
+      console.log(firstMatch.input) // <h1>Hello, world!</h1>
+    },
+    strSplit() {
+      console.log('12-34-56'.split('-'))
     }
   }
 }
