@@ -53,7 +53,7 @@ export class PeaPromise {
       const rejectFn = error => {
         try {
           const res = onReject(error)
-          res instanceof PeaPromise ? res.then(resolve, reject) : reject(error)
+          res instanceof PeaPromise ? res.then(resolve, reject) : resolve(error)
         } catch (e) {
           reject(e)
         }
