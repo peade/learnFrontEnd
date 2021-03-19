@@ -15,7 +15,7 @@ export default {
   watch: {},
   created() {},
   mounted() {
-    this.generateThrow()
+    this.firstNext()
   },
   destroyed() {},
   methods: {
@@ -56,6 +56,85 @@ export default {
           console.log(e)
           break
         }
+      }
+    },
+    generateFlat() {
+      const arr = [1, [[2, 3], 4], [5, 6]]
+      const flat = function*(a) {
+        const length = a.length
+        for (let i = 0; i < length; i++) {
+          const item = a[i]
+          if (typeof item !== 'number') {
+            yield* flat(item)
+          } else {
+            yield item
+          }
+        }
+      }
+      const res = flat(arr)
+      console.log(res)
+      for (let v of res) {
+        console.log(v)
+      }
+    },
+    firstNext() {
+      function* dataConsumer() {
+        console.log('Started')
+        console.log(`1. ${yield}`)
+        console.log(`2. ${yield}`)
+        return 'result'
+      }
+
+      let genObj = dataConsumer()
+      genObj.next()
+      // Started
+      genObj.next('a')
+      // 1. a
+      console.log(genObj.next('b'))
+    },
+    wrapNext() {
+      function wrapper(generatorFunction) {
+        return function(...args) {
+          let generatorObject = generatorFunction(...args)
+          generatorObject.next()
+          return generatorObject
+        }
+      }
+
+      const wrapped = wrapper(function*() {
+        console.log(`First input: ${yield}`)
+        return 'DONE'
+      })
+
+      wrapped().next('hello!')
+    },
+    fibonacci() {
+      function* fibonacci() {
+        let [prev, curr] = [0, 1]
+        for (;;) {
+          yield curr
+          ;[prev, curr] = [curr, prev + curr]
+        }
+      }
+
+      for (let n of fibonacci()) {
+        if (n > 1000) break
+        console.log(n)
+      }
+    },
+    objEntry() {
+      function* objectEntries(obj) {
+        let propKeys = Reflect.ownKeys(obj)
+
+        for (let propKey of propKeys) {
+          yield [propKey, obj[propKey]]
+        }
+      }
+
+      let jane = { first: 'Jane', last: 'Doe' }
+
+      for (let [key, value] of objectEntries(jane)) {
+        console.log(`${key}: ${value}`)
       }
     }
   }
