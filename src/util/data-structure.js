@@ -36,3 +36,11 @@ export class TreeNode {
 export function swap(array, a, b) {
   ;[array[a], array[b]] = [array[b], array[a]]
 }
+
+export const BalanceFactor = {
+  UNBALANCED_RIGHT: 1,
+  SLIGHTLY_UNBALANCED_RIGHT: 2,
+  BALANCED: 3,
+  SLIGHTLY_UNBALANCED_LEFT: 4,
+  UNBALANCED_LEFT: 5
+}
