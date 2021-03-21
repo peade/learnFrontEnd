@@ -72,13 +72,7 @@ const routers = [
       import('../views/Currying.vue' /* webpackChunkName: "fre-currying" */),
     meta: { title: '柯里化' }
   },
-  {
-    path: '/ds-algo',
-    name: 'DsAlgo',
-    component: () =>
-      import('../views/DsAlgo.vue' /* webpackChunkName: "fre-ds-algo" */),
-    meta: { title: '算法示例' }
-  },
+
   {
     path: '/stack',
     name: 'Stack',
@@ -122,6 +116,13 @@ const routers = [
     component: () =>
       import('../views/Shuffle.vue' /* webpackChunkName: "fre-shuffle" */),
     meta: { title: '乱序' }
+  },
+  {
+    path: '/ds-algo',
+    name: 'DsAlgo',
+    component: () =>
+      import('../views/DsAlgo.vue' /* webpackChunkName: "fre-ds-algo" */),
+    meta: { title: '算法示例' }
   },
   {
     path: '/char-code',

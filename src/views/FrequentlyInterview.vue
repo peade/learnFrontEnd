@@ -16,23 +16,20 @@ import {
   regFlat,
   regFlatImprove,
   reduceFlat,
-  recursionFlat
-} from '@/FrequentlyInterview/flat-array'
-import {
+  recursionFlat,
   uniqueBySet,
   uniqueByForSplice,
   uniqueByIndexOf,
   uniqueByIncludes,
   uniqueByFilter,
-  uniqueByMap
-} from '@/FrequentlyInterview/unique-array'
-import {
+  uniqueByMap,
   arrayFrom,
   sliceCall,
   extendGrammar,
-  arrConcat
-} from '@/FrequentlyInterview/to-array'
-import { protoInherit } from '@/FrequentlyInterview/utils'
+  arrConcat,
+  protoInherit
+} from '@/util/frequently-interview'
+
 export default {
   name: 'FrequentlyInterview',
   filters: {},
