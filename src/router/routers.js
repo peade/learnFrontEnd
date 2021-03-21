@@ -103,6 +103,13 @@ const routers = [
     meta: { title: '链表' }
   },
   {
+    path: '/tree',
+    name: 'Tree',
+    component: () =>
+      import('../views/tree/Tree.vue' /* webpackChunkName: "fre-tree" */),
+    meta: { title: '树' }
+  },
+  {
     path: '/sort',
     name: 'Sort',
     component: () =>
