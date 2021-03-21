@@ -34,6 +34,7 @@ export default {
     LogFnName(this.execY)()
     LogFnName(this.strMatch)()
     LogFnName(this.strSplit)()
+    LogFnName(this.replace)()
   },
   destroyed() {},
   methods: {
@@ -174,6 +175,18 @@ export default {
     },
     strSplit() {
       console.log('12-34-56'.split('-'))
+    },
+    replace() {
+      const str = '123abc456'
+      const regex = /(\d+)/g
+
+      function replacer(g0, g1, offset, source) {
+        console.log({ g0, g1, offset, source })
+        return [g1].join(' - ')
+      }
+
+      console.log(str.replaceAll(regex, replacer))
+      console.log(str.replace(regex, replacer))
     }
   }
 }
