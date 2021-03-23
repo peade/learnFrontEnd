@@ -222,6 +222,15 @@ const routers = [
     component: () =>
       import('../views/Regex.vue' /* webpackChunkName: "fre-regex" */),
     meta: { title: '正则' }
+  },
+  {
+    path: '/sword',
+    name: 'Sword',
+    component: () =>
+      import(
+        '../views/sword-algo/SwordAlgo.vue' /* webpackChunkName: "fre-sword" */
+      ),
+    meta: { title: '剑指' }
   }
 ]
 export default routers

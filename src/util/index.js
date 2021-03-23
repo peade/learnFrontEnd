@@ -139,6 +139,6 @@ export function GetDeviceInfo() {
 export function LogFnName(fn) {
   return function(...args) {
     console.log(fn.name)
-    fn(...args)
+    return fn(...args)
   }
 }
