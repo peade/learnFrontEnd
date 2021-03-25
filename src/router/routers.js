@@ -1,5 +1,21 @@
 const routers = [
   {
+    path: '/input',
+    name: 'InputId',
+    component: () =>
+      import('../views/html/InputId.vue' /* webpackChunkName: "fre-input" */),
+    meta: { title: 'Input' }
+  },
+  {
+    path: '/checkbox',
+    name: 'CheckBox',
+    component: () =>
+      import(
+        '../views/html/CheckBox.vue' /* webpackChunkName: "fre-checkbox" */
+      ),
+    meta: { title: 'checkbox' }
+  },
+  {
     path: '/proto',
     name: 'Proto',
     component: () =>
@@ -165,13 +181,7 @@ const routers = [
       import('../views/DeepClone.vue' /* webpackChunkName: "fre-deep-clone" */),
     meta: { title: '深克隆' }
   },
-  {
-    path: '/input',
-    name: 'InputId',
-    component: () =>
-      import('../views/html/InputId.vue' /* webpackChunkName: "fre-input" */),
-    meta: { title: 'Input' }
-  },
+
   {
     path: '/back',
     name: 'Back',
