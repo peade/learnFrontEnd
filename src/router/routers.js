@@ -23,6 +23,13 @@ const routers = [
     meta: { title: '迭代器' }
   },
   {
+    path: '/array',
+    name: 'Array',
+    component: () =>
+      import('@/views/ArrayLearn.vue' /* webpackChunkName: "fre-array" */),
+    meta: { title: '数组' }
+  },
+  {
     path: '/decorator',
     name: 'Decorator',
     component: () =>
