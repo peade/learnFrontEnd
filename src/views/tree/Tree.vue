@@ -1,6 +1,6 @@
 <template>
   <div>
-    <binary-tree />
+    <binary-tree ref="binary" />
   </div>
 </template>
 <script>
@@ -17,7 +17,9 @@ export default {
   computed: {},
   watch: {},
   created() {},
-  mounted() {},
+  mounted() {
+    console.log(this.$refs.binary)
+  },
   destroyed() {},
   methods: {}
 }

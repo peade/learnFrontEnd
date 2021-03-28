@@ -39,6 +39,13 @@ const routers = [
     meta: { title: '迭代器' }
   },
   {
+    path: '/array',
+    name: 'Array',
+    component: () =>
+      import('@/views/ArrayLearn.vue' /* webpackChunkName: "fre-array" */),
+    meta: { title: '数组' }
+  },
+  {
     path: '/decorator',
     name: 'Decorator',
     component: () =>
@@ -232,6 +239,15 @@ const routers = [
     component: () =>
       import('../views/Regex.vue' /* webpackChunkName: "fre-regex" */),
     meta: { title: '正则' }
+  },
+  {
+    path: '/sword',
+    name: 'Sword',
+    component: () =>
+      import(
+        '../views/sword-algo/SwordAlgo.vue' /* webpackChunkName: "fre-sword" */
+      ),
+    meta: { title: '剑指' }
   }
 ]
 export default routers

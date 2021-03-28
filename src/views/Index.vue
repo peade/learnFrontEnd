@@ -32,11 +32,7 @@ export default {
   watch: {},
   created() {},
   mounted() {
-    // this.hashDemo()
-    // history.replaceState('', '', location.href + '?a=b')
-    // this.testClass()
-    // this.domEvt()
-    this.forInForOf()
+    this.addEvtTest()
   },
   destroyed() {},
   methods: {
@@ -117,6 +113,12 @@ export default {
       for (let y of arr) {
         console.log(y)
       }
+    },
+    addEvtTest() {
+      function a() {}
+      console.log(a.prototype)
+      console.log(Function.prototype)
+      console.log(a instanceof Function)
     }
   }
 }
