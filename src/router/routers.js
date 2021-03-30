@@ -12,6 +12,13 @@ const routers = [
     component: () =>
       import('@/views/SingletonPattern' /* webpackChunkName: "single"  */),
     meta: { title: '单例模式' }
+  },
+  {
+    path: '/constructor',
+    name: 'construct',
+    component: () =>
+      import('@/views/Constructor' /* webpackChunkName: "construct"  */),
+    meta: { title: '构造者' }
   }
 ]
 export default routers
