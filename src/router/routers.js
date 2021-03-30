@@ -1,243 +1,247 @@
 const routers = [
   {
+    path: '/factory',
+    name: 'Factory',
+    component: () =>
+      import('@/views/FactoryPattern' /* webpackChunkName: "factory"  */),
+    meta: { title: '工厂模式' }
+  },
+  {
+    path: '/single',
+    name: 'Single',
+    component: () =>
+      import('@/views/SingletonPattern' /* webpackChunkName: "single"  */),
+    meta: { title: '单例模式' }
+  },
+  {
+    path: '/constructor',
+    name: 'construct',
+    component: () =>
+      import('@/views/Constructor' /* webpackChunkName: "construct"  */),
+    meta: { title: '构造者' }
+  },
+  {
     path: '/proto',
     name: 'Proto',
-    component: () =>
-      import('../views/Proto.vue' /* webpackChunkName: "proto" */),
-    meta: { title: '原型' }
+    component: () => import('@/views/Proto' /* webpackChunkName: "proto"  */),
+    meta: { title: '原型式' }
   },
   {
-    path: '/proto-inherit',
-    name: 'ProtoInherit',
+    path: '/adapter',
+    name: 'Adapter',
     component: () =>
-      import(
-        '../views/ProtoInherit.vue' /* webpackChunkName: "proto-inherit" */
-      ),
-    meta: { title: '原型继承' }
+      import('@/views/AdapterPattern' /* webpackChunkName: "adapter"  */),
+    meta: { title: '适配器' }
   },
   {
-    path: '/iterator',
-    name: 'Iterator',
+    path: '/bridge',
+    name: 'Bridge',
     component: () =>
-      import('../views/Iterator.vue' /* webpackChunkName: "fre-Iterator" */),
-    meta: { title: '迭代器' }
+      import('@/views/BridgePattern' /* webpackChunkName: "bridge"  */),
+    meta: { title: '桥接' }
   },
   {
-    path: '/array',
-    name: 'Array',
+    path: '/filter',
+    name: 'Filter',
     component: () =>
-      import('@/views/ArrayLearn.vue' /* webpackChunkName: "fre-array" */),
-    meta: { title: '数组' }
+      import('@/views/FilterPattern' /* webpackChunkName: "filter"  */),
+    meta: { title: '过滤器' }
+  },
+  {
+    path: '/composite',
+    name: 'Composite',
+    component: () =>
+      import('@/views/CompositePattern' /* webpackChunkName: "composite"  */),
+    meta: { title: '组合模式' }
   },
   {
     path: '/decorator',
     name: 'Decorator',
     component: () =>
-      import('../views/Decorator.vue' /* webpackChunkName: "fre-decorator" */),
+      import('@/views/DecoratorPattern' /* webpackChunkName: "decorator"  */),
     meta: { title: '装饰器' }
   },
   {
-    path: '/learn-object',
-    name: 'LearnObject',
+    path: '/facade',
+    name: 'Facade',
     component: () =>
-      import(
-        '../views/LearnObject.vue' /* webpackChunkName: "fre-learn-object" */
-      ),
-    meta: { title: '对象' }
+      import('@/views/FacadePattern' /* webpackChunkName: "facade"  */),
+    meta: { title: '外观' }
   },
   {
-    path: '/learn-class',
-    name: 'LearnClass',
+    path: '/flyweight',
+    name: 'Flyweight',
     component: () =>
-      import(
-        '../views/LearnClass.vue' /* webpackChunkName: "fre-learn-class" */
-      ),
-    meta: { title: '类' }
+      import('@/views/FlyweightPattern' /* webpackChunkName: "flyweight"  */),
+    meta: { title: '享元' }
   },
   {
-    path: '/learn-generator',
-    name: 'LearnGnerator',
+    path: '/proxy',
+    name: 'Proxy',
     component: () =>
-      import(
-        '../views/Generator.vue' /* webpackChunkName: "fre-learn-generator" */
-      ),
-    meta: { title: 'Generator' }
+      import('@/views/ProxyPattern' /* webpackChunkName: "proxy"  */),
+    meta: { title: '代理' }
   },
   {
-    path: '/proxy-reflect',
-    name: 'ProxyReflect',
+    path: '/chain-responsibility',
+    name: 'ChainResponsibility',
     component: () =>
       import(
-        '../views/ProxyReflect.vue' /* webpackChunkName: "fre-proxy-reflect" */
+        '@/views/ChainOfResponsibilityPattern' /* webpackChunkName: "chain-responsibility"  */
       ),
-    meta: { title: '代理反射' }
-  },
-  {
-    path: '/currying',
-    name: 'Currying',
-    component: () =>
-      import('../views/Currying.vue' /* webpackChunkName: "fre-currying" */),
-    meta: { title: '柯里化' }
+    meta: { title: '责任链' }
   },
 
   {
-    path: '/stack',
-    name: 'Stack',
+    path: '/command',
+    name: 'Command',
     component: () =>
-      import('../views/Stack.vue' /* webpackChunkName: "fre-stack" */),
-    meta: { title: '栈' }
+      import('@/views/CommandPattern' /* webpackChunkName: "command"  */),
+    meta: { title: '命令' }
   },
   {
-    path: '/queue',
-    name: 'Queue',
-    component: () =>
-      import('../views/Queue.vue' /* webpackChunkName: "fre-queue" */),
-    meta: { title: '队列' }
-  },
-  {
-    path: '/linked-list',
-    name: 'LinkedList',
+    path: '/interpreter',
+    name: 'Interpreter',
     component: () =>
       import(
-        '../views/linked-list/LinkedList.vue' /* webpackChunkName: "fre-linked-list" */
+        '@/views/InterpreterPattern' /* webpackChunkName: "interpreter"  */
       ),
-    meta: { title: '链表' }
+    meta: { title: '解释器' }
   },
   {
-    path: '/tree',
-    name: 'Tree',
+    path: '/iterator',
+    name: 'Iterator',
     component: () =>
-      import('../views/tree/Tree.vue' /* webpackChunkName: "fre-tree" */),
-    meta: { title: '树' }
+      import('@/views/IteratorPattern' /* webpackChunkName: "iterator"  */),
+    meta: { title: '迭代器' }
   },
   {
-    path: '/sort',
-    name: 'Sort',
+    path: '/mediator',
+    name: 'Mediator',
     component: () =>
-      import('../views/sort/DataSort.vue' /* webpackChunkName: "fre-sort" */),
-    meta: { title: '排序' }
+      import('@/views/MediatorPattern' /* webpackChunkName: "mediator"  */),
+    meta: { title: '中介者' }
   },
   {
-    path: '/shuffle',
-    name: 'Shuffle',
+    path: '/memento',
+    name: 'Memento',
     component: () =>
-      import('../views/Shuffle.vue' /* webpackChunkName: "fre-shuffle" */),
-    meta: { title: '乱序' }
+      import('@/views/MementoPattern' /* webpackChunkName: "memento"  */),
+    meta: { title: '备忘录' }
   },
   {
-    path: '/ds-algo',
-    name: 'DsAlgo',
+    path: '/observer',
+    name: 'Observer',
     component: () =>
-      import('../views/DsAlgo.vue' /* webpackChunkName: "fre-ds-algo" */),
-    meta: { title: '算法示例' }
+      import('@/views/ObserverPattern' /* webpackChunkName: "observer"  */),
+    meta: { title: '观察者' }
   },
   {
-    path: '/char-code',
-    name: 'CharCode',
+    path: '/state',
+    name: 'State',
     component: () =>
-      import('../views/CharCode.vue' /* webpackChunkName: "fre-char-code" */),
-    meta: { title: '字节值' }
+      import('@/views/StatePattern' /* webpackChunkName: "state"  */),
+    meta: { title: '状态' }
   },
   {
-    path: '/singleton',
-    name: 'Singleton',
+    path: '/null-object',
+    name: 'NullObject',
     component: () =>
       import(
-        '../views/design-pattern/Singleton.vue' /* webpackChunkName: "fre-singleton" */
+        '@/views/NullObjectPattern' /* webpackChunkName: "null-object"  */
       ),
-    meta: { title: '单例' }
+    meta: { title: '空对象' }
   },
   {
     path: '/strategy',
     name: 'Strategy',
     component: () =>
-      import(
-        '../views/design-pattern/Strategy.vue' /* webpackChunkName: "fre-strategy" */
-      ),
+      import('@/views/StrategyPattern' /* webpackChunkName: "strategy"  */),
     meta: { title: '策略' }
   },
   {
-    path: '/proxy-pattern',
-    name: 'ProxyPattern',
+    path: '/template',
+    name: 'Template',
+    component: () =>
+      import('@/views/TemplatePattern' /* webpackChunkName: "template"  */),
+    meta: { title: '模板' }
+  },
+  {
+    path: '/visitor',
+    name: 'Visitor',
+    component: () =>
+      import('@/views/VisitorPattern' /* webpackChunkName: "visitor"  */),
+    meta: { title: '访问者' }
+  },
+  {
+    path: '/business-delegate',
+    name: 'BusinessDelegate',
     component: () =>
       import(
-        '../views/design-pattern/ProxyPattern.vue' /* webpackChunkName: "fre-proxy-pattern" */
+        '@/views/BusinessDelegatePattern' /* webpackChunkName: "business-delegate"  */
       ),
-    meta: { title: '代理模式' }
+    meta: { title: '业务代表' }
   },
   {
-    path: '/deep-clone',
-    name: 'DeepClone',
-    component: () =>
-      import('../views/DeepClone.vue' /* webpackChunkName: "fre-deep-clone" */),
-    meta: { title: '深克隆' }
-  },
-  {
-    path: '/input',
-    name: 'InputId',
-    component: () =>
-      import('../views/html/InputId.vue' /* webpackChunkName: "fre-input" */),
-    meta: { title: 'Input' }
-  },
-  {
-    path: '/back',
-    name: 'Back',
-    component: () =>
-      import('../views/Back.vue' /* webpackChunkName: "fre-back" */),
-    meta: { title: 'go back' }
-  },
-  {
-    path: '/fre-inte',
-    name: 'FrequentlyInterview',
+    path: '/composite-entity',
+    name: 'CompositeEntity',
     component: () =>
       import(
-        '../views/FrequentlyInterview.vue' /* webpackChunkName: "fre-inte" */
+        '@/views/CompositeEntityPattern' /* webpackChunkName: "composite-entity"  */
       ),
-    meta: { title: '其他' }
+    meta: { title: '组合实体' }
   },
   {
-    path: '/test-back',
-    name: 'TestBack',
-    component: () =>
-      import('../views/BackTest.vue' /* webpackChunkName: "fre-back-test" */),
-    meta: { title: 'Back Test' }
-  },
-  {
-    path: '/user-info',
-    name: 'UserInfo',
-    component: () =>
-      import('../views/UserInfo.vue' /* webpackChunkName: "fre-user-info" */),
-    meta: { title: 'user-info' }
-  },
-  {
-    path: '/reqanim',
-    name: 'ReqAnim',
-    component: () =>
-      import('../views/ReqAnim.vue' /* webpackChunkName: "fre-req-anim" */),
-    meta: { title: 'reqanim' }
-  },
-  {
-    path: '/test-vue',
-    name: 'TestVue',
-    component: () =>
-      import('../views/TestVue.vue' /* webpackChunkName: "fre-test-vue" */),
-    meta: { title: 'Test Vue' }
-  },
-  {
-    path: '/regex',
-    name: 'Regex',
-    component: () =>
-      import('../views/Regex.vue' /* webpackChunkName: "fre-regex" */),
-    meta: { title: '正则' }
-  },
-  {
-    path: '/sword',
-    name: 'Sword',
+    path: '/data-access-object',
+    name: 'DataAccessObject',
     component: () =>
       import(
-        '../views/sword-algo/SwordAlgo.vue' /* webpackChunkName: "fre-sword" */
+        '@/views/DataAccessObjectPattern' /* webpackChunkName: "data-access-object"  */
       ),
-    meta: { title: '剑指' }
+    meta: { title: '数据访问对象' }
+  },
+  {
+    path: '/front-controller',
+    name: 'FrontController',
+    component: () =>
+      import(
+        '@/views/FrontControllerPattern' /* webpackChunkName: "front-controller"  */
+      ),
+    meta: { title: '前端控制器' }
+  },
+  {
+    path: '/intercepting',
+    name: 'InterceptingFilter',
+    component: () =>
+      import(
+        '@/views/InterceptingFilterPattern' /* webpackChunkName: "intercepting"  */
+      ),
+    meta: { title: '拦截过滤器' }
+  },
+  {
+    path: '/mvc',
+    name: 'MVC',
+    component: () =>
+      import('@/views/MVCPattern' /* webpackChunkName: "mvc"  */),
+    meta: { title: 'MVC' }
+  },
+  {
+    path: '/service-locator',
+    name: 'ServiceLocator',
+    component: () =>
+      import(
+        '@/views/ServiceLocatorPattern' /* webpackChunkName: "service-locator"  */
+      ),
+    meta: { title: '服务定位' }
+  },
+  {
+    path: '/transfer-object',
+    name: 'TransferObject',
+    component: () =>
+      import(
+        '@/views/TransferObjectPattern' /* webpackChunkName: "transfer-object"  */
+      ),
+    meta: { title: '传输对象' }
   }
 ]
 export default routers

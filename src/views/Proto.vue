@@ -1,7 +1,16 @@
 <template>
-  <div>prototype</div>
+  <div>
+    <h4>原型模式(Prototype Pattern)</h4>
+    <p>
+      大家熟知的原型链，也是按照原型模式进行。原型模式是一种创建对象的方式。今天我们就以JS的原型链作为主要讲解，通过原型链的实例继承和对象的创建。
+    </p>
+    <p>
+      在其它编程中使用原型模式的优势是使用更小的代价来创建对象，通过原型引用的方式而不是开辟新的空间。但JS是个例外，直接new就好了，因为JS创建对象的方式就是原型引用，所以对比其它语言创建大对象的性能，能高出不少。
+    </p>
+  </div>
 </template>
 <script>
+import { ShapeCache } from '@/util/proto'
 export default {
   name: 'Proto',
   filters: {},
@@ -15,144 +24,16 @@ export default {
   watch: {},
   created() {},
   mounted() {
-    this.classExtendBasedProto()
+    ShapeCache.loadCache()
+    const clonedShape = ShapeCache.getShape('1')
+    console.log('Shape : ' + clonedShape.getType())
+    const clonedShape2 = ShapeCache.getShape('2')
+    console.log('Shape : ' + clonedShape2.getType())
+    const clonedShape3 = ShapeCache.getShape('3')
+    console.log('Shape : ' + clonedShape3.getType())
   },
   destroyed() {},
-  methods: {
-    protoMulti() {
-      const animal = {
-        book: 1,
-        eat() {
-          this.full = true
-        },
-        setBook(num) {
-          this.book = num
-        }
-      }
-      const rabbit = {
-        __proto__: animal
-      }
-      const dog = {
-        __proto__: animal
-      }
-      rabbit.setBook(2)
-      console.log(rabbit.book, dog.book)
-    },
-    protoTp() {
-      let animal = {
-        eats: true
-      }
-      function Rabbit(name) {
-        this.name = name
-      }
-      Rabbit.prototype = animal
-      let rabbit = new Rabbit('White Rabbit') //  rabbit.__proto__ == animal
-      let rab = new Rabbit('black')
-      // rabbit.__proto__.eats = false
-      console.log(rabbit.eats, rab.eats) // true
-    },
-    ctor() {
-      console.log('constructor')
-      function Rabbit() {}
-      let rabbit = new Rabbit() // inherits from {constructor: Rabbit}
-      console.log(rabbit.constructor == Rabbit) // true (from prototype)
-      let rabbit1 = new Rabbit('White Rabbit')
-      let rabbit2 = new rabbit.constructor('Black Rabbit')
-      console.log(rabbit1, rabbit2)
-      // change constructor
-      Rabbit.prototype = {
-        jumps: true,
-        constructor: Rabbit
-      }
-    },
-    protoPart01() {
-      console.log('------learn prototype-------')
-      const anotherObject = { a: 2 }
-      const myObject = Object.create(anotherObject)
-      console.log(myObject.a)
-      for (let k in myObject) {
-        console.log(k)
-      }
-      myObject.a++
-      console.log(myObject.a, anotherObject.a, myObject)
-
-      function Foo(name) {
-        this.name = name
-      }
-      Foo.prototype.constructor === Foo
-      Foo.prototype.myName = function() {
-        return this.name
-      }
-      const f = new Foo()
-      console.log(
-        'Object.getPrototypeOf( f ) === Foo.prototype',
-        Object.getPrototypeOf(f) === Foo.prototype
-      )
-      console.log('f.constructor === Foo', f.constructor === Foo)
-
-      const a = new Foo('a')
-      const b = new Foo('b')
-      console.log(a.myName(), b.myName())
-    },
-    protoPart02() {
-      function Foo(name) {
-        this.name = name
-      }
-      Foo.prototype.myName = function() {
-        return this.name
-      }
-
-      function Bar(name, label) {
-        Foo.call(this, name)
-        this.label = label
-      }
-      // 创建一个新得Bar.prototype 对象，并关联到Foo.prototype
-      Bar.prototype = Object.create(Foo.prototype) // 没有Bar.prototype.constructor, 如果需要，则需要手动进行修复
-
-      // es6 的写法
-      Object.setPrototypeOf(Bar.prototype, Foo.prototype)
-
-      Bar.prototype.myLabel = function() {
-        return this.label
-      }
-
-      const a = new Bar('a', 'obj a')
-      console.log(a.myName(), a.myLabel())
-    },
-    objCreatePolyfill() {
-      if (!Object.create) {
-        Object.create = function(o) {
-          function F() {}
-          F.prototype = o
-          return new F()
-        }
-      }
-    },
-    classExtendBasedProto() {
-      function Rectangle(width, height) {
-        this.width = width
-        this.height = height
-      }
-      Rectangle.prototype.getArea = function() {
-        return this.width * this.height
-      }
-      function Square(length) {
-        Rectangle.call(this, length, length)
-      }
-      Square.prototype = Object.create(Rectangle.prototype, {
-        constructor: {
-          value: Square,
-          enumerable: false,
-          writable: false,
-          configurable: false
-        }
-      })
-      const square = new Square(3)
-      console.log(square.getArea())
-      console.log(square instanceof Square)
-      console.log(square instanceof Rectangle)
-    }
-  }
+  methods: {}
 }
 </script>
 <style scoped lang="scss"></style>
