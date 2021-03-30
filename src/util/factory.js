@@ -30,3 +30,50 @@ export class ShapeFactory {
     }
   }
 }
+
+class Red {
+  fill() {
+    console.log('fill red')
+  }
+}
+
+class Blue {
+  fill() {
+    console.log('fill blue')
+  }
+}
+
+class Green {
+  fill() {
+    console.log('fill green')
+  }
+}
+
+export class ColorFactory {
+  getColor(color) {
+    switch (color) {
+      case 'RED':
+        return new Red()
+      case 'BLUE':
+        return new Blue()
+      case 'GREEN':
+        return new Green()
+      default:
+        return null
+    }
+  }
+}
+
+// 抽象工厂
+export class FactoryProducer {
+  static getFactory(choice) {
+    switch (choice) {
+      case 'SHAPE':
+        return new ShapeFactory()
+      case 'COLOR':
+        return new ColorFactory()
+      default:
+        return null
+    }
+  }
+}
