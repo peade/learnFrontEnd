@@ -1,107 +1,45 @@
-// 纸盒
-class Wrapper {
-  pack() {
-    return 'Wrapper'
-  }
-}
-// 瓶子
-class Bottle {
-  pack() {
-    return 'Bottle'
-  }
-}
-// 汉堡需要纸盒包住
-class Burger {
-  packing() {
-    return new Wrapper()
-  }
-}
-// 冷饮需要瓶子装
-class ColdDrink {
-  packing() {
-    return new Bottle()
-  }
-}
-
-// 蔬菜汉堡
-class VegBurger extends Burger {
-  price() {
-    return 25.0
-  }
-  name() {
-    return 'Veg Burger'
-  }
-}
-// 肌肉汉堡
-class ChickenBurger extends Burger {
-  price() {
-    return 50.5
-  }
-  name() {
-    return 'Chicken Burger'
-  }
-}
-// 可乐
-class Coke extends ColdDrink {
-  price() {
-    return 30.0
-  }
-  name() {
-    return 'Coke'
-  }
-}
-// 百事
-class Pepsi extends ColdDrink {
-  price() {
-    return 35.0
-  }
-  name() {
-    return 'Pepsi'
-  }
-}
-
-class Meal {
+/**
+ * 产品类别： Car
+ */
+class Car {
   constructor() {
-    const items = []
-    Reflect.defineProperty(this, 'items', {
-      get: () => {
-        if (this.__proto__ !== Meal.prototype) {
-          throw new Error('items is private!')
-        }
-        return items
-      }
-    })
-  }
-  addItem(item) {
-    this[this.itemsName].push(item)
-  }
-  getCost() {
-    let cost = 0.0
-    for (const item of this[this.itemsName]) {
-      cost += item.price()
-    }
-    return cost
-  }
-  showItems() {
-    for (const item of this[this.itemsName]) {
-      const nameStr = 'Item : ' + item.name()
-      const packStr = 'Packing : ' + item.packing().pack()
-      const priceStr = 'Price : ' + item.price()
-      console.log(`${nameStr},${packStr},${priceStr}`)
-    }
+    this.name = ''
+    this.number = ''
+    this.wheel = ''
+    this.engine = ''
   }
 }
-export class MealBuilder {
-  prepareVegMeal() {
-    const meal = new Meal()
-    meal.addItem(new VegBurger())
-    meal.addItem(new Coke())
-    return meal
+// 建造类
+export class CarBuilder {
+  constructor() {}
+  nameBuilder(name = '很厉害的车') {
+    this.name = name
   }
-  prepareNonVegMeal() {
-    const meal = new Meal()
-    meal.addItem(new ChickenBurger())
-    meal.addItem(new Pepsi())
-    return meal
+  numberBuilder(number = '888888') {
+    this.number = number
+  }
+  wheelBuilder(wheel = '高级橡胶做的轮子') {
+    this.wheel = wheel
+  }
+  engineBuilder(engine = '很厉害的引擎') {
+    this.engine = engine
+  }
+  getCar() {
+    const car = new Car()
+    car.name = this.name
+    car.number = this.number
+    car.wheel = this.wheel
+    car.engine = this.engine
+    return car
+  }
+}
+
+// 指挥类
+export class Director {
+  action(builder) {
+    builder.nameBuilder()
+    builder.numberBuilder()
+    builder.wheelBuilder()
+    builder.engineBuilder()
   }
 }

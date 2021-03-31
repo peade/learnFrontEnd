@@ -7,7 +7,7 @@
   </div>
 </template>
 <script>
-import { MealBuilder } from '@/util/constructor'
+import { CarBuilder, Director } from '@/util/constructor'
 export default {
   name: 'ConstructorPattern',
   filters: {},
@@ -21,15 +21,11 @@ export default {
   watch: {},
   created() {},
   mounted() {
-    const mealBuilder = new MealBuilder()
-    const vegMeal = mealBuilder.prepareVegMeal()
-    console.log('Veg Meal')
-    vegMeal.showItems()
-    console.log('Total Cost: ' + vegMeal.getCost())
-    const nonVegMeal = mealBuilder.prepareNonVegMeal()
-    console.log('\nNon-Veg Meal')
-    nonVegMeal.showItems()
-    console.log('Total Cost: ' + nonVegMeal.getCost())
+    const builder = new CarBuilder()
+    const director = new Director()
+    director.action(builder)
+    const Car = builder.getCar()
+    console.log(Car)
   },
   destroyed() {},
   methods: {}
