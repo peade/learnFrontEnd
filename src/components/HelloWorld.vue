@@ -103,24 +103,16 @@
 </template>
 
 <script>
-<<<<<<< HEAD
-export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
-  },
-  mounted() {
-    this.$confirm('提示')
-      .then(function (res) {
-        console.log(res)
-      })
-=======
   export default {
     name: 'HelloWorld',
     props: {
       msg: String
+    },
+    mounted() {
+      this.$confirm('提示').then(function(res) {
+        console.log(res)
+      })
     }
->>>>>>> master
   }
 </script>
 

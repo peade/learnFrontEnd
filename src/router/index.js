@@ -13,6 +13,13 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "index" */ '../views/Index.vue'),
     meta: { title: 'Index' }
+  },
+  {
+    path: '/pro-inj',
+    name: 'ProInj',
+    component: () =>
+      import(/* webpackChunkName: "pro-inj" */ '../views/ProvideInject.vue'),
+    meta: { title: 'pro-inj' }
   }
 ]
 
