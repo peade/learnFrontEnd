@@ -248,6 +248,13 @@ const routers = [
         '../views/sword-algo/SwordAlgo.vue' /* webpackChunkName: "fre-sword" */
       ),
     meta: { title: '剑指' }
+  },
+  {
+    path: '/multi-ajax',
+    name: 'MultiAjax',
+    component: () =>
+      import('../views/MultiAjax.vue' /* webpackChunkName: "fre-multi-ajax" */),
+    meta: { title: '大量请求' }
   }
 ]
 export default routers
