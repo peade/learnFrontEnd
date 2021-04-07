@@ -23,14 +23,29 @@ export default {
   watch: {},
   created() {},
   mounted() {
+    this.testNullArr()
     this.generateArr()
-    this.multi2()
+    // this.multi2()
+    this.multiRequest(this.arr, 5)
+      .then(res => {
+        console.log('multiReq ', res)
+      })
+      .catch(e => {
+        console.dir(e)
+      })
   },
   destroyed() {},
   methods: {
+    testNullArr() {
+      const arr = new Array()
+      arr[5] = 5
+      if (arr.includes(null)) {
+        console.log('has null')
+      }
+    },
     generateArr() {
       for (let i = 0; i < 100; i++) {
-        this.arr.push(Math.ceil(Math.random() * 100))
+        this.arr.push(Math.ceil(Math.random() * 1000))
       }
       this.arr.sort((a, b) => {
         return a > b ? 1 : -1
@@ -70,8 +85,11 @@ export default {
     },
     ajax(item) {
       console.log('start------' + item)
-      return new Promise(resolve => {
+      return new Promise((resolve, reject) => {
         const val = Math.random() * 10000
+        if (val < 2000) {
+          reject(new Error('smaller then 1000'))
+        }
         setTimeout(() => {
           console.log('finish----' + item)
           resolve(item)
@@ -80,6 +98,57 @@ export default {
     },
     async single(val) {
       await this.ajax(val)
+    },
+    multiRequest(urls = [], maxNum) {
+      const _this = this
+      // 请求总数
+      const len = urls.length
+      // 根据请求数量创建一个数组来保存请求的结果
+      const result = new Array(len).fill(null)
+      let isError = false
+      // 当前完成的数量
+      let count = 0
+
+      return new Promise((resolve, reject) => {
+        // 请求maxNum
+        while (count < maxNum) {
+          next()
+        }
+        function next() {
+          if (isError) {
+            return
+          }
+          let current = count++
+          // 处理边界条件
+          if (current >= len) {
+            if (!result.includes(null)) {
+              resolve(result)
+            }
+            return
+          }
+          console.log(current)
+          let url = urls[current]
+          // console.log(`开始 ${current}`, new Date().toLocaleString())
+          _this
+            .ajax(url)
+            .then(res => {
+              result[current] = res
+              // 请求没有全部完成, 就递归
+              if (current < len) {
+                next()
+              }
+            })
+            .catch(err => {
+              result[current] = err
+              isError = true
+              // 请求没有全部完成, 就递归
+              if (current < len) {
+                next()
+              }
+              reject(err)
+            })
+        }
+      })
     }
   }
 }
