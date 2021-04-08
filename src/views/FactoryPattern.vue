@@ -47,7 +47,7 @@ export default {
       // 通过工厂拿各种形状
       const shape1 = shapeFactory.getShape('CIRCLE')
       shape1.draw()
-      const shape2 = shapeFactory.getShape('RECTANGLE')
+      const shape2 = shapeFactory.getShape('RECTANGEL')
       shape2.draw()
       const shape3 = shapeFactory.getShape('SQUARE')
       shape3.draw()

@@ -18,10 +18,11 @@ class Square {
 
 export class ShapeFactory {
   getShape(shapeType) {
+    console.log(shapeType)
     switch (shapeType) {
       case 'CIRCLE':
         return new Circle()
-      case 'RECTANGEL':
+      case 'RECTANGLE':
         return new Rectangle()
       case 'SQUARE':
         return new Square()
