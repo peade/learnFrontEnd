@@ -24,7 +24,7 @@ export default {
   created() {},
   mounted() {
     this.generateArr()
-    this.multi2()
+    this.handleLimit()
   },
   destroyed() {},
   methods: {
@@ -70,11 +70,15 @@ export default {
     },
     ajax(item) {
       console.log('start------' + item)
-      return new Promise(resolve => {
+      return new Promise((resolve, reject) => {
         const val = Math.random() * 10000
         setTimeout(() => {
           console.log('finish----' + item)
-          resolve(item)
+          if (val > 2000) {
+            resolve(item)
+          } else {
+            reject(new Error('smaller then 2000'))
+          }
         }, val)
       })
     },
