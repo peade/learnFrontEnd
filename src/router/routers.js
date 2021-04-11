@@ -60,6 +60,13 @@ const routers = [
     component: () =>
       import('@/views/DecoratorPattern' /* webpackChunkName: "decorator"  */),
     meta: { title: '装饰器' }
+  },
+  {
+    path: '/facade',
+    name: 'Facade',
+    component: () =>
+      import('@/views/FacadePattern' /* webpackChunkName: "facade"  */),
+    meta: { title: '外观' }
   }
 ]
 export default routers
