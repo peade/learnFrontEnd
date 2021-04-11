@@ -46,6 +46,13 @@ const routers = [
     component: () =>
       import('@/views/FilterPattern' /* webpackChunkName: "filter"  */),
     meta: { title: '过滤器' }
+  },
+  {
+    path: '/composite',
+    name: 'Composite',
+    component: () =>
+      import('@/views/CompositePattern' /* webpackChunkName: "composite"  */),
+    meta: { title: '组合模式' }
   }
 ]
 export default routers
