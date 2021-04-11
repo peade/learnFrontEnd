@@ -53,6 +53,13 @@ const routers = [
     component: () =>
       import('@/views/CompositePattern' /* webpackChunkName: "composite"  */),
     meta: { title: '组合模式' }
+  },
+  {
+    path: '/decorator',
+    name: 'Decorator',
+    component: () =>
+      import('@/views/DecoratorPattern' /* webpackChunkName: "decorator"  */),
+    meta: { title: '装饰器' }
   }
 ]
 export default routers
