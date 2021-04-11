@@ -67,6 +67,13 @@ const routers = [
     component: () =>
       import('@/views/FacadePattern' /* webpackChunkName: "facade"  */),
     meta: { title: '外观' }
+  },
+  {
+    path: '/flyweight',
+    name: 'Flyweight',
+    component: () =>
+      import('@/views/FlyweightPattern' /* webpackChunkName: "flyweight"  */),
+    meta: { title: '享元' }
   }
 ]
 export default routers
