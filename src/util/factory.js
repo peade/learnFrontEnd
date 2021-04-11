@@ -1,16 +1,16 @@
-class Circle {
+export class Circle {
   draw() {
     console.log("I'm a circle")
   }
 }
 
-class Rectangle {
+export class Rectangle {
   draw() {
     console.log("I'm a rectangle")
   }
 }
 
-class Square {
+export class Square {
   draw() {
     console.log("I'm a square")
   }

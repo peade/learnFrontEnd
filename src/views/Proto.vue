@@ -10,6 +10,7 @@
   </div>
 </template>
 <script>
+import { ShapeCache } from '@/util/proto'
 export default {
   name: 'Proto',
   filters: {},
@@ -22,7 +23,15 @@ export default {
   computed: {},
   watch: {},
   created() {},
-  mounted() {},
+  mounted() {
+    ShapeCache.loadCache()
+    const clonedShape = ShapeCache.getShape('1')
+    console.log('Shape : ' + clonedShape.getType())
+    const clonedShape2 = ShapeCache.getShape('2')
+    console.log('Shape : ' + clonedShape2.getType())
+    const clonedShape3 = ShapeCache.getShape('3')
+    console.log('Shape : ' + clonedShape3.getType())
+  },
   destroyed() {},
   methods: {}
 }
