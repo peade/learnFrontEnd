@@ -74,6 +74,13 @@ const routers = [
     component: () =>
       import('@/views/FlyweightPattern' /* webpackChunkName: "flyweight"  */),
     meta: { title: '享元' }
+  },
+  {
+    path: '/proxy',
+    name: 'Proxy',
+    component: () =>
+      import('@/views/ProxyPattern' /* webpackChunkName: "proxy"  */),
+    meta: { title: '代理' }
   }
 ]
 export default routers
