@@ -29,13 +29,20 @@ export default {
     setTimeout(() => {
       console.log('timeout')
       this.list[2] = 14
-      this.list.length = 3
+      // this.list.length = 3
       this.arr[0] = { a: 34, b: 16, c: 19 }
       this.arr.length = 1
-    }, 3000)
+      this.spliceArr()
+    }, 2000)
   },
   destroyed() {},
-  methods: {}
+  methods: {
+    spliceArr() {
+      setTimeout(() => {
+        this.list.splice(2, 1)
+      }, 2000)
+    }
+  }
 }
 </script>
 <style scoped lang="scss">
