@@ -90,6 +90,14 @@ const routers = [
         '@/views/ChainOfResponsibilityPattern' /* webpackChunkName: "chain-responsibility"  */
       ),
     meta: { title: '责任链' }
+  },
+
+  {
+    path: '/command',
+    name: 'Command',
+    component: () =>
+      import('@/views/CommandPattern' /* webpackChunkName: "command"  */),
+    meta: { title: '命令' }
   }
 ]
 export default routers
