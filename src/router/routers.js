@@ -98,6 +98,15 @@ const routers = [
     component: () =>
       import('@/views/CommandPattern' /* webpackChunkName: "command"  */),
     meta: { title: '命令' }
+  },
+  {
+    path: '/interpreter',
+    name: 'Interpreter',
+    component: () =>
+      import(
+        '@/views/InterpreterPattern' /* webpackChunkName: "interpreter"  */
+      ),
+    meta: { title: '解释器' }
   }
 ]
 export default routers
