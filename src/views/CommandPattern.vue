@@ -10,7 +10,7 @@
   </div>
 </template>
 <script>
-import { Stock, BuyStock, SellStock, Broker } from '@/util/command-pattern'
+import { Stock, BuyStock, SellStock, Broker } from '@/util/command'
 export default {
   name: 'CommandPattern',
   filters: {},

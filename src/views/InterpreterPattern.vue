@@ -13,7 +13,7 @@
 import {
   getMaleExpression,
   getMarriedWomanExpression
-} from '@/util/interpreter-pattern'
+} from '@/util/interpreter'
 export default {
   name: 'InterpreterPattern',
   filters: {},

@@ -107,6 +107,13 @@ const routers = [
         '@/views/InterpreterPattern' /* webpackChunkName: "interpreter"  */
       ),
     meta: { title: '解释器' }
+  },
+  {
+    path: '/iterator',
+    name: 'Iterator',
+    component: () =>
+      import('@/views/IteratorPattern' /* webpackChunkName: "iterator"  */),
+    meta: { title: '迭代器' }
   }
 ]
 export default routers
