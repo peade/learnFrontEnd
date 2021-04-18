@@ -172,6 +172,15 @@ const routers = [
     component: () =>
       import('@/views/VisitorPattern' /* webpackChunkName: "visitor"  */),
     meta: { title: '访问者' }
+  },
+  {
+    path: '/business-delegate',
+    name: 'BusinessDelegate',
+    component: () =>
+      import(
+        '@/views/BusinessDelegatePattern' /* webpackChunkName: "business-delegate"  */
+      ),
+    meta: { title: '业务代表' }
   }
 ]
 export default routers
