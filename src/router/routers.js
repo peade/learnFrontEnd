@@ -81,6 +81,15 @@ const routers = [
     component: () =>
       import('@/views/ProxyPattern' /* webpackChunkName: "proxy"  */),
     meta: { title: '代理' }
+  },
+  {
+    path: '/chain-responsibility',
+    name: 'ChainResponsibility',
+    component: () =>
+      import(
+        '@/views/ChainOfResponsibilityPattern' /* webpackChunkName: "chain-responsibility"  */
+      ),
+    meta: { title: '责任链' }
   }
 ]
 export default routers
