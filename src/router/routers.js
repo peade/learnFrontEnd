@@ -199,6 +199,15 @@ const routers = [
         '@/views/DataAccessObjectPattern' /* webpackChunkName: "data-access-object"  */
       ),
     meta: { title: '数据访问对象' }
+  },
+  {
+    path: '/front-controller',
+    name: 'FrontController',
+    component: () =>
+      import(
+        '@/views/FrontControllerPattern' /* webpackChunkName: "front-controller"  */
+      ),
+    meta: { title: '前端控制器' }
   }
 ]
 export default routers
