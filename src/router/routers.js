@@ -208,6 +208,15 @@ const routers = [
         '@/views/FrontControllerPattern' /* webpackChunkName: "front-controller"  */
       ),
     meta: { title: '前端控制器' }
+  },
+  {
+    path: '/intercepting',
+    name: 'InterceptingFilter',
+    component: () =>
+      import(
+        '@/views/InterceptingFilterPattern' /* webpackChunkName: "intercepting"  */
+      ),
+    meta: { title: '拦截过滤器' }
   }
 ]
 export default routers
