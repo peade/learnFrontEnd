@@ -135,6 +135,13 @@ const routers = [
     component: () =>
       import('@/views/ObserverPattern' /* webpackChunkName: "observer"  */),
     meta: { title: '观察者' }
+  },
+  {
+    path: '/state',
+    name: 'State',
+    component: () =>
+      import('@/views/StatePattern' /* webpackChunkName: "state"  */),
+    meta: { title: '状态' }
   }
 ]
 export default routers
