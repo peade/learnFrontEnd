@@ -165,6 +165,13 @@ const routers = [
     component: () =>
       import('@/views/TemplatePattern' /* webpackChunkName: "template"  */),
     meta: { title: '模板' }
+  },
+  {
+    path: '/visitor',
+    name: 'Visitor',
+    component: () =>
+      import('@/views/VisitorPattern' /* webpackChunkName: "visitor"  */),
+    meta: { title: '访问者' }
   }
 ]
 export default routers
