@@ -1,6 +1,6 @@
 <template>
   <div v-show="showRoutes">
-    <van-row gutter="10">
+    <van-row gutter="3">
       <van-col
         class="col"
         span="6"
@@ -48,6 +48,6 @@ export default {
   background-color: #39a9ed;
   background-clip: content-box;
   line-height: 2;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 </style>

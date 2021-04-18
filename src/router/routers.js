@@ -190,6 +190,15 @@ const routers = [
         '@/views/CompositeEntityPattern' /* webpackChunkName: "composite-entity"  */
       ),
     meta: { title: '组合实体' }
+  },
+  {
+    path: '/data-access-object',
+    name: 'DataAccessObject',
+    component: () =>
+      import(
+        '@/views/DataAccessObjectPattern' /* webpackChunkName: "data-access-object"  */
+      ),
+    meta: { title: '数据访问对象' }
   }
 ]
 export default routers
