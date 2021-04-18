@@ -142,6 +142,15 @@ const routers = [
     component: () =>
       import('@/views/StatePattern' /* webpackChunkName: "state"  */),
     meta: { title: '状态' }
+  },
+  {
+    path: '/null-object',
+    name: 'NullObject',
+    component: () =>
+      import(
+        '@/views/NullObjectPattern' /* webpackChunkName: "null-object"  */
+      ),
+    meta: { title: '空对象' }
   }
 ]
 export default routers
