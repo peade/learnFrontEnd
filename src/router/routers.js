@@ -114,6 +114,20 @@ const routers = [
     component: () =>
       import('@/views/IteratorPattern' /* webpackChunkName: "iterator"  */),
     meta: { title: '迭代器' }
+  },
+  {
+    path: '/mediator',
+    name: 'Mediator',
+    component: () =>
+      import('@/views/MediatorPattern' /* webpackChunkName: "mediator"  */),
+    meta: { title: '中介者' }
+  },
+  {
+    path: '/memento',
+    name: 'Memento',
+    component: () =>
+      import('@/views/MementoPattern' /* webpackChunkName: "memento"  */),
+    meta: { title: '备忘录' }
   }
 ]
 export default routers
