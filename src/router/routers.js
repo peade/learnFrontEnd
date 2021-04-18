@@ -224,6 +224,24 @@ const routers = [
     component: () =>
       import('@/views/MVCPattern' /* webpackChunkName: "mvc"  */),
     meta: { title: 'MVC' }
+  },
+  {
+    path: '/service-locator',
+    name: 'ServiceLocator',
+    component: () =>
+      import(
+        '@/views/ServiceLocatorPattern' /* webpackChunkName: "service-locator"  */
+      ),
+    meta: { title: '服务定位' }
+  },
+  {
+    path: '/transfer-object',
+    name: 'TransferObject',
+    component: () =>
+      import(
+        '@/views/TransferObjectPattern' /* webpackChunkName: "transfer-object"  */
+      ),
+    meta: { title: '传输对象' }
   }
 ]
 export default routers
