@@ -128,6 +128,13 @@ const routers = [
     component: () =>
       import('@/views/MementoPattern' /* webpackChunkName: "memento"  */),
     meta: { title: '备忘录' }
+  },
+  {
+    path: '/observer',
+    name: 'Observer',
+    component: () =>
+      import('@/views/ObserverPattern' /* webpackChunkName: "observer"  */),
+    meta: { title: '观察者' }
   }
 ]
 export default routers
