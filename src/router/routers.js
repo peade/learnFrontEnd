@@ -151,6 +151,13 @@ const routers = [
         '@/views/NullObjectPattern' /* webpackChunkName: "null-object"  */
       ),
     meta: { title: '空对象' }
+  },
+  {
+    path: '/strategy',
+    name: 'Strategy',
+    component: () =>
+      import('@/views/StrategyPattern' /* webpackChunkName: "strategy"  */),
+    meta: { title: '策略' }
   }
 ]
 export default routers
