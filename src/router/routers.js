@@ -181,6 +181,15 @@ const routers = [
         '@/views/BusinessDelegatePattern' /* webpackChunkName: "business-delegate"  */
       ),
     meta: { title: '业务代表' }
+  },
+  {
+    path: '/composite-entity',
+    name: 'CompositeEntity',
+    component: () =>
+      import(
+        '@/views/CompositeEntityPattern' /* webpackChunkName: "composite-entity"  */
+      ),
+    meta: { title: '组合实体' }
   }
 ]
 export default routers
