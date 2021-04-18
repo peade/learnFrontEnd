@@ -217,6 +217,13 @@ const routers = [
         '@/views/InterceptingFilterPattern' /* webpackChunkName: "intercepting"  */
       ),
     meta: { title: '拦截过滤器' }
+  },
+  {
+    path: '/mvc',
+    name: 'MVC',
+    component: () =>
+      import('@/views/MVCPattern' /* webpackChunkName: "mvc"  */),
+    meta: { title: 'MVC' }
   }
 ]
 export default routers
