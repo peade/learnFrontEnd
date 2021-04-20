@@ -25,14 +25,7 @@ export default {
   mounted() {
     this.testNullArr()
     this.generateArr()
-    // this.multi2()
-    this.multiRequest(this.arr, 5)
-      .then(res => {
-        console.log('multiReq ', res)
-      })
-      .catch(e => {
-        console.dir(e)
-      })
+    this.handleLimit()
   },
   destroyed() {},
   methods: {
@@ -92,7 +85,11 @@ export default {
         }
         setTimeout(() => {
           console.log('finish----' + item)
-          resolve(item)
+          if (val > 2000) {
+            resolve(item)
+          } else {
+            reject(new Error('smaller then 2000'))
+          }
         }, val)
       })
     },
